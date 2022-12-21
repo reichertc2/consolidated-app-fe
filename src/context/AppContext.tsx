@@ -3,7 +3,7 @@ import { IAppContext, IProps } from "../modules/default/models/IContextInterface
 import { IUserSettings } from "../modules/default/models/IUserInterfaces";
 
 
-export const AppContext = createContext<IAppContext | null>({});
+export const AppContext = createContext<any>({});
 
 const AppContextProvider = ({ children }: IProps) => {
     const getUserFromLS = () => {
@@ -30,5 +30,7 @@ const AppContextProvider = ({ children }: IProps) => {
 
     return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 };
+
+
 
 export default AppContextProvider;

@@ -3,8 +3,8 @@ import { IUserSettings } from "./IUserInterfaces";
 
 export interface IAppContext {
     authenticated?: boolean;
-    user?: IUserSettings | null;
-    setAlert?: React.Dispatch<React.SetStateAction<{}>> | null
+    user?: IUserSettings | undefined;
+    setAlert?: React.Dispatch<React.SetStateAction<{}>> | undefined
 
 }
 
