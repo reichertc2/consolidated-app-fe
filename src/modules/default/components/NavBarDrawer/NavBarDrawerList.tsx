@@ -46,9 +46,10 @@ const menuItems = [
 ]
 
 
+interface INavBarDrawerList { }
+export const NavBarDrawerList: React.FC<INavBarDrawerList> = () => {
 
 
-export default function NavBarDrawerList() {
 
   return (
     <List>
@@ -67,3 +68,5 @@ export default function NavBarDrawerList() {
     </List>
   );
 }
+
+export default NavBarDrawerList;

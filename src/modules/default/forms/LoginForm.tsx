@@ -29,7 +29,7 @@ export default function LoginForm() {
     //useLogin(loginCreds, setLoginCreds, setError, setUser);
 
     const handleSubmit = () => {
-         console.log("login handleSubmit");
+        console.log("login handleSubmit");
         //setLoginCreds(values);
     };
 

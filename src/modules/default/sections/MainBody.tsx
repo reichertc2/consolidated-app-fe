@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import Footer from '../sections/Footer';
 import Login from '../views/Login';
 import RegisterEdit from '../views/RegisterEdit'
-
 import AccountDash from "../../ia/components/AccountDash";
 import TargetPortfolio from "../../ia/components/TargetPortfolio";
 import PositionTool from "../../ia/components/PositionTool";
@@ -57,10 +56,11 @@ const HomePage = () => {
     );
 };
 
+interface IMainBody { }
 
-export default function MainBody() {
+export const MainBody: React.FC<IMainBody> = () => {
     return (
-        
+
         <main>
 
             <Routes>
@@ -81,10 +81,12 @@ export default function MainBody() {
                 </Route>
 
 
-                </Routes>
-                <Footer />
+            </Routes>
+            <Footer />
 
-            </main>
-        
+        </main>
+
     );
 }
+
+export default MainBody;

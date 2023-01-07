@@ -1,55 +1,25 @@
-import { useState } from 'react'; 
-import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import NavBarDrawerList from '../components/NavBar/NavBarDrawerList';
-import NavBarHeaderLinks from '../components/NavBar/NavBarHeaderLinks';
-import NavBarDropDownMenu from '../components/NavBar/NavBarDropDownMenu';
-import Footer from './Footer';
+import NavBarDrawerList from '../components/NavBarDrawer/NavBarDrawerList';
 import MainBody from './MainBody';
-
 
 const drawerWidth = 240;
 
-export default function NavBarDrawer() {
-  const [open, setOpen] = useState(true);
+interface INavBarDrawer {
+  open: boolean
+}
 
-  const handleDrawer = () => {
-    if (open === true) {
-      setOpen(false);
-    } else {
-      setOpen(true);
-    }
-  };
+export const NavBarDrawer: React.FC<INavBarDrawer> = ({ open }: INavBarDrawer) => {
 
   return (
-    <Box sx={{ display: 'flex', width: "100%" }}>
-      <MuiAppBar >
-        <Toolbar
-          sx={{ justifyContent: "space-between" }}
-        >
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawer}
-          >
-            <MenuIcon />
-          </IconButton>
-          <NavBarHeaderLinks />
-          <NavBarDropDownMenu />
-        </Toolbar>
-      </MuiAppBar>
-          <Drawer
-              PaperProps={{
-                  sx: {
-                      marginTop: '75px'
-                      //   height: 240
-                  }
-              }}
+    <>
+      <Drawer
+        PaperProps={{
+          sx: {
+            marginTop: '75px'
+            //   height: 240
+          }
+        }}
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -66,6 +36,8 @@ export default function NavBarDrawer() {
         <NavBarDrawerList />
       </Drawer>
       <MainBody />
-    </Box>
+    </>
   );
 }
+
+export default NavBarDrawer;

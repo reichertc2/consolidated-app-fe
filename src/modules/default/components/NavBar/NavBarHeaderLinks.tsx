@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom'
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-
 import Button from '@mui/material/Button';
 
 
@@ -51,7 +49,9 @@ const pages = [
     },
 ];
 
-const NavHeaderLinks = () => {
+interface INavHeaderLinks { }
+
+export const NavHeaderLinks: React.FC<INavHeaderLinks> = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
 
