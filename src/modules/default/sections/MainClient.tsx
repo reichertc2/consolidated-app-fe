@@ -1,13 +1,13 @@
 import Box from '@mui/material/Box';
 import { useState } from 'react';
-import NavBarDrawer from './NavBarDrawer';
+import NavBarDrawer from '../general/components/NavBarDrawer';
 import NavBar from '../general/components/NavBar';
 
 interface IMainClient { }
 
 export const MainClient: React.FC<IMainClient> = () => {
 
-    const [userLoggedIn, setUserLoggedIn] = useState(false)
+    const [userLoggedIn, setUserLoggedIn] = useState(true)
     const [open, setOpen] = useState(false);
 
     const handleDrawer = () => {

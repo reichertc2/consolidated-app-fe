@@ -6,8 +6,14 @@ export default function RegisterEdit() {
 
     return (
         <div>
-            <h3>Register User</h3>
-            <RegisterEditForm />
+
+            <section style={{ width: "50%", margin: "0px auto", marginTop: "20%", padding: '3% 1%' }}>
+
+
+
+                <RegisterEditForm />
+            </section>
+
         </div>
 
     );

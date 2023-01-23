@@ -68,7 +68,8 @@ export const NavHeaderLinks: React.FC<INavHeaderLinks> = () => {
                 <Button
                     key={page.id}
                     sx={{ my: 2, color: 'white', display: 'block' }}
-                ><Link to={page.path}>
+                >
+                    <Link to={page.path}>
                         {page.pathName}
                     </Link>
                 </Button>

@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { IAppContext, IProps } from "../modules/default/general/models/IContextInterfaces";
-import { IUserSettings } from "../modules/default/admin/models/IUserInterfaces";
+import { IUserSettings } from "../modules/default/auth/models/IUserInterfaces";
 
 
 export const AppContext = createContext<any>({});
@@ -15,6 +15,7 @@ const AppContextProvider = ({ children }: IProps) => {
 
     const [user, _setUser] = useState(getUserFromLS() ?? {});
     const [alert, setAlert] = useState({});
+    const [module, setModule] = useState()
 
     const setUser = (user: IUserSettings) => {
         localStorage.setItem("user", JSON.stringify(user));
@@ -26,9 +27,15 @@ const AppContextProvider = ({ children }: IProps) => {
         setUser,
         alert,
         setAlert,
+        module,
+        setModule
     };
 
-    return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
+    return (
+        <AppContext.Provider value={values}>
+            {children}
+        </AppContext.Provider>
+    );
 };
 
 

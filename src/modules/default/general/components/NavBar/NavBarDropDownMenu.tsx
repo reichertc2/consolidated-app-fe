@@ -6,9 +6,8 @@ import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { userDropdownMenuItems } from "../../menu/menu"
 
-
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 interface INavBarDropDownMenu { }
 
@@ -49,9 +48,9 @@ export const NavBarDropDownMenu: React.FC<INavBarDropDownMenu> = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
             >
-                {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">{setting}</Typography>
+                {userDropdownMenuItems.map((path) => (
+                    <MenuItem key={path.id} onClick={handleCloseUserMenu}>
+                        <Typography textAlign="center">{path.pathName}</Typography>
                     </MenuItem>
                 ))}
             </Menu>
