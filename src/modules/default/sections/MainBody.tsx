@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from '../sections/Footer';
-import Login from '../views/Login';
-import RegisterEdit from '../views/RegisterEdit'
+import Login from '../admin/views/Login';
+import RegisterEdit from '../admin/views/RegisterEdit'
 import AccountDash from "../../ia/components/AccountDash";
 import TargetPortfolio from "../../ia/components/TargetPortfolio";
 import PositionTool from "../../ia/components/PositionTool";

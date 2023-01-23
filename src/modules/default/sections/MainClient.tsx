@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 import NavBarDrawer from './NavBarDrawer';
-import NavBar from '../components/NavBar';
+import NavBar from '../general/components/NavBar';
 
 interface IMainClient { }
 

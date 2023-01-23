@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
-import { IAppContext, IProps } from "../modules/default/models/IContextInterfaces";
-import { IUserSettings } from "../modules/default/models/IUserInterfaces";
+import { IAppContext, IProps } from "../modules/default/general/models/IContextInterfaces";
+import { IUserSettings } from "../modules/default/admin/models/IUserInterfaces";
 
 
 export const AppContext = createContext<any>({});
