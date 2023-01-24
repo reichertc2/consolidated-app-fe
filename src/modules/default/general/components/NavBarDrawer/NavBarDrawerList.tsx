@@ -6,18 +6,22 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { portfolioMenuItems } from "../../menu/menu";
+import { portfolioMenuItems, noUserDrawerMenuItems } from "../../menu/menu";
+import { useContext } from "react";
+import { AppContext } from "../../../../../context/AppContext";
 
 
 
 interface INavBarDrawerList { }
 export const NavBarDrawerList: React.FC<INavBarDrawerList> = () => {
 
+  const { user } = useContext(AppContext)
 
 
   return (
     <List>
-      {portfolioMenuItems[0]["subPaths"].map((item, index) => (
+
+      {user.email ? portfolioMenuItems.map((item, index) => (
         <ListItem key={item.id} disablePadding>
           <ListItemButton>
             <Link to={item.path} >
@@ -28,7 +32,21 @@ export const NavBarDrawerList: React.FC<INavBarDrawerList> = () => {
             </Link>
           </ListItemButton>
         </ListItem>
-      ))}
+      ))
+        :
+        noUserDrawerMenuItems.map((item, index) => (
+          <ListItem key={item.id} disablePadding>
+            <ListItemButton>
+              <Link to={item.path} >
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={item.pathName} sx={{ padding: "1px" }} />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        ))
+      }
     </List>
   );
 }

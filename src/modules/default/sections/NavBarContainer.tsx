@@ -13,7 +13,7 @@ import { AppContext } from "../../../context/AppContext";
 
 export default function NavBarContainer() {
   const [open, setOpen] = useState<boolean | undefined>(false);
-  const { user, setAlert } = useContext(AppContext);
+  const { user } = useContext(AppContext);
 
   const handleDrawer = () => {
     if (open === true) {

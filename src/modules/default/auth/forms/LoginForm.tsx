@@ -1,19 +1,19 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 //import Button from "../components/Button";
 import TextField from "@mui/material/TextField";
-//import { AppContext } from "../../../context/AppContext";
+import { AppContext } from "../../../../context/AppContext";
 //import Error from "../components/Error";
-//import useLogin from "../hooks/useLogin";
+import useLogin from "../hooks/useLogin";
 import { Link } from "react-router-dom";
+import { IUserLoginFormValues } from "../models/IUserInterfaces";
+import { Grid } from "@mui/material";
 
 //Defining our yup validation
 const FormSchema = Yup.object({
-    email: Yup.string().email("Must be a valid e-mail format"),
-    password: Yup.string(),
-    //email: Yup.string().email("Must be a valid e-mail format").required(),
-    //password: Yup.string().required(),
+    email: Yup.string().email("Must be a valid e-mail format").required(),
+    password: Yup.string().required(),
 });
 
 const initialValues = {
@@ -22,27 +22,27 @@ const initialValues = {
 };
 
 export default function LoginForm() {
-    //const { user, setUser } = useContext(AppContext);
-    //const [loginCreds, setLoginCreds] = useState({});
-    //const [error, setError] = useState("");
+    const { user, setUser } = useContext(AppContext);
+    const [loginCreds, setLoginCreds] = useState({});
+    const [error, setError] = useState("");
 
-    //useLogin(loginCreds, setLoginCreds, setError, setUser);
+    useLogin(loginCreds, setLoginCreds, setError, setUser);
 
-    const handleSubmit = () => {
-        console.log("login handleSubmit");
-        //setLoginCreds(values);
+    const handleSubmit = (values: IUserLoginFormValues) => {
+        console.log("login handleSubmit",values);
+        setLoginCreds(values);
     };
 
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: FormSchema,
-        onSubmit: () => {
-            handleSubmit();
+        onSubmit: (values) => {
+            handleSubmit(values);
         },
     });
 
     return (
-        <section>
+        <Grid>
             <h3>Please Login</h3>
             <form onSubmit={formik.handleSubmit}>
                 <TextField
@@ -86,6 +86,6 @@ export default function LoginForm() {
                 {/*    {user.first_name ? "Edit Profile" : "Register"}*/}
                 {/*</Button>*/}
             </Link>
-        </section>
+        </Grid>
     );
 }

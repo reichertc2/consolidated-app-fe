@@ -6,7 +6,7 @@ interface IHomePage { }
 export const HomePage: React.FC<IHomePage> = () => {
 
     return (
-        <section style={{ width: "100%", margin: "0px auto", marginTop: "75px" }}>
+        <section style={{ width: "75%", margin: "15% auto", marginTop: "15%",backgroundColor:"lightblue", borderRadius:"10px" }}>
 
 
             <table
@@ -21,6 +21,7 @@ export const HomePage: React.FC<IHomePage> = () => {
                                 margin: "0px auto",
                                 verticalAlign: "top",
                                 fontSize: "2rem",
+                                padding:".75rem"
 
                             }}
                         >
@@ -33,8 +34,8 @@ export const HomePage: React.FC<IHomePage> = () => {
                                 // margin: "0px 0px 0px 3%",
                                 verticalAlign: "bottom",
                                 fontSize: "1.25rem",
-
-                                paddingBottom: "1rem",
+                                padding:".75rem"
+                                
                             }}
                         >
                             Your one stop shop for all your Personal needs.
@@ -44,7 +45,7 @@ export const HomePage: React.FC<IHomePage> = () => {
             </table>
             <Button
                 href="/user/login"
-                sx={{ my: 2, color: 'blue', display: 'block' }}>
+                sx={{ my: 2, color: 'blue', display: 'block', margin: "auto", width:"10%" }}>
 
                 Login
 

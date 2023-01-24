@@ -6,10 +6,10 @@ export interface IUserSettings {
     token?:any
 }
 
-export interface IRegisterEditUser {
+export interface IRegisterEditUserFormValues {
     email: string;
-    firstName: string;
-    lastName: string;
+    first_name: string;
+    last_name: string;
     password: string;
 }
 
@@ -18,4 +18,9 @@ export interface IUserLogin{
     setLoginCreds:any;
     setError:any;
     setUser:any;
+}
+
+export interface IUserLoginFormValues {
+    email:string;
+    password:string;
 }

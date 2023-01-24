@@ -8,6 +8,7 @@ import PositionTool from "../../ia/components/PositionTool";
 import ReallocationTool from "../../ia/components/ReallocationTool";
 import Transactions from "../../ia/components/Transactions";
 import HomePage from "../general/components/HomePage";
+import LogoutView from "../auth/views/LogoutView"
 
 
 
@@ -31,7 +32,7 @@ export const MainBody: React.FC<IMainBody> = () => {
 
                 <Route path="/user" >
                     <Route path="/user/login" element={<Login />} />
-                    {/*<Route path="/user/logout" element={<Logout />} />*/}
+                    <Route path="/user/logout" element={<LogoutView />} />
                     <Route path="/user/RegisterEditUser" element={<RegisterEdit />} />
                 </Route>
 

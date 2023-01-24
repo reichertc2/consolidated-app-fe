@@ -1,25 +1,6 @@
-header {
-    width: 100%;
-    background-color: darkgrey;
-    height: 75px;
-}
-
-aside {
-    width: 200px;
-    vertical-align: top;
-    display: inline-block;
-    background-color: darkgrey;
-    min-height: 100%;
-    height: auto !important; /*min-height hack*/
-    height: 100%;
-}
-
-main {
-    margin: 0px auto;
-    display: inline-block;
-    width: 80%;
-    height:100%;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .gridWrapper {
     vertical-align: top;
@@ -86,39 +67,6 @@ main {
     width: 100%;
 }
 
-header img, .navSection, nav, nav li {
-    display: inline-block;
-}
 
-nav {
-    margin-top: 1rem;
-    width: 80%;
-    vertical-align: top;
-}
 
-    nav section:first-child {
-        width: 90%;
-    }
 
-    nav section:last-child {
-        vertical-align: middle;
-    }
-
-    nav section img {
-        border-radius: 90px;
-        /* padding-bottom: 1rem; */
-    }
-
-    nav a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    nav li {
-        list-style: none;
-        padding: 1rem 3rem;
-    }
-
-aside li {
-    list-style: none;
-}

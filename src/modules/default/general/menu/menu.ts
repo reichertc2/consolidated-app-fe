@@ -1,11 +1,18 @@
+export const noUserDrawerMenuItems = 
+[
+  {
+    id: "a1",
+    pathName: "Login",
+    path: "/user/login",
+  },
+]
 
 
-export const portfolioMenuItems = [
-    {
-      id: 1,
-      pathName: "Portfolio",
-      path: "/portfolio/acct_dash",
-      subPaths: [
+
+
+export const portfolioMenuItems = 
+    [
+  
         {
           id: "a1",
           pathName: "Account Dash",
@@ -31,9 +38,9 @@ export const portfolioMenuItems = [
           pathName: "Transactions",
           path: "/portfolio/transactions",
         },
-      ],
-    },
-  ]
+    ]
+  
+  
 
   export const userDropdownMenuItems = [
     {
@@ -57,7 +64,26 @@ export const portfolioMenuItems = [
     {
       id: "1ub",
       pathName: "Logout",
-      path: "/",
+      path: "/user/logout",
       subPaths: []
     },
 ]
+
+export const moduleHeaderLinks = [
+  {
+      id: 1,
+      pathName: "Portfolio",
+      path: "/portfolio/acct_dash",
+
+  },
+  {
+      id: 2,
+      pathName: "Reading List",
+      path: "/portfolio/acct_dash"
+  },
+  {
+      id: 3,
+      pathName: "Temp - User Create",
+      path: "/user/RegisterEditUser"
+  },
+];

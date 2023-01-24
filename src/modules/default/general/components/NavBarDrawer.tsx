@@ -16,7 +16,7 @@ export const NavBarDrawer: React.FC<INavBarDrawer> = ({ open }: INavBarDrawer) =
       <Drawer
         PaperProps={{
           sx: {
-            marginTop: '75px'
+            marginTop: '70px'
             //   height: 240
           }
         }}

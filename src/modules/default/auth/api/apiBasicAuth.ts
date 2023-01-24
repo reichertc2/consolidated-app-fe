@@ -3,13 +3,13 @@ import apiClient from "./clientBasicAuth";
 const endpoint = `${process.env.REACT_APP_SERVER}auth/login`;  
 
 
-
-
 export const getUser = async (email:string, password:string, cancelToken:any) => {
   let error;
   let user;
-
+  
   const response:any = await apiClient(email, password, cancelToken).get(endpoint);
+  console.log("getUser", response)
+
   if (response.ok) {
     user = response.data;
   } else if (response.status === 401) {
