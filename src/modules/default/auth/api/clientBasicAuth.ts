@@ -1,7 +1,8 @@
 import { create } from "apisauce";
 import base64 from "base-64";
 
-const apiClient = (email, password, cancelToken) =>
+
+const apiClient = (email:string, password:string, cancelToken:any) =>
   create({
     baseURL:
       window.location.hostname === "127.0.0.1" ||

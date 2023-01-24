@@ -2,19 +2,20 @@ import { useEffect } from "react";
 import { getUser } from "../api/apiBasicAuth";
 import { CancelToken } from "apisauce";
 import { useNavigate } from "react-router-dom";
+import { IUserLogin } from "../models/IUserInterfaces";
 
 //hooks have to be called with "use" at the beginning. So function below uses 
 //name "useLogin"
-export default function useLogin(loginCreds, setLoginCreds, setError, setUser) {
+export default function useLogin(loginCreds: any, setLoginCreds: any, setError: any, setUser: any) {
   const navigate = useNavigate();
   useEffect(() => {
     const source = CancelToken.source();
     if (loginCreds.email && loginCreds.password) {
-      const login = async (cancelToken) => {
+      const login = async (cancelToken: any) => {
         const response = await getUser(
           loginCreds.email,
           loginCreds.password,
-          cancelToken
+          cancelToken,
         );
         console.log(response);
         if (response.user?.token) {

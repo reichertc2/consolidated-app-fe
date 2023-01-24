@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { IUserSettings } from "../../admin/models/IUserInterfaces";
+import { IUserSettings } from "../../auth/models/IUserInterfaces";
 
 export interface IAppContext {
     authenticated?: boolean;
