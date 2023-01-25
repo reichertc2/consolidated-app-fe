@@ -26,17 +26,13 @@ export interface ITenYearGrowth {
 }
 
 export interface ITopFivePositions {
-    positionOne: IPostionSingleDisplay;
-    positionTwo: IPostionSingleDisplay;
-    positionThree: IPostionSingleDisplay;
-    positionFour: IPostionSingleDisplay;
-    positionFive: IPostionSingleDisplay;
+    positionOne: string;
+    positionTwo: string;
+    positionThree: string;
+    positionFour: string;
+    positionFive: string;
 }
 
-export interface IPostionSingleDisplay {
-    id: string;
-    position: string;
-}
 
 export interface ISectorBreakout {
     sectorName: string[];

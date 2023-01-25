@@ -51,26 +51,11 @@ export const AccountDashView: React.FC<IAcctDash> = () => {
             ],
         },
         topFivePositions: {
-            positionOne: {
-                id: "1.",
-                position: 'TRECX - $  7,645 - 14.4% ',
-            },
-            positionTwo: {
-                id: "2.",
-                position: 'TRECX - $  7,645 - 14.4% ',
-            },
-            positionThree: {
-                id: "3.",
-                position: 'TRECX - $  7,645 - 14.4% ',
-            },
-            positionFour: {
-                id: "4.",
-                position: 'TRECX - $  7,645 - 14.4% ',
-            },
-            positionFive: {
-                id: "5.",
-                position: 'TRECX - $  7,645 - 14.4% ',
-            },
+            positionOne: 'TRECX - $  7,645 - 14.4% ',
+            positionTwo: 'TRECX - $  7,645 - 14.4% ',
+            positionThree: 'TRECX - $  7,645 - 14.4% ',
+            positionFour: 'TRECX - $  7,645 - 14.4% ',
+            positionFive: 'TRECX - $  7,645 - 14.4% ',
         },
         sectorBreakout: {
             sectorName: [
@@ -185,8 +170,10 @@ export const AccountDashView: React.FC<IAcctDash> = () => {
     };
 
     return (
-        <article className='gridWrapper'>
-            
+        <article
+            className='m-4 grid align-top grid-rows-5 gap-2.5 auto-rows-max '
+        >
+
             <AcctGrid acctInfo={acctInfo.general} />
             <TenYearGrowth acctInfo={acctInfo.tenYearGrowth} />
             <TopFivePos acctInfo={acctInfo.topFivePositions} />
