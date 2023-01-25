@@ -1,16 +1,16 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import {moduleHeaderLinks} from "../../menu/menu"
-import {AppContext} from '../../../../../context/AppContext';
+import { moduleHeaderLinks } from "../../menu/menu"
+import { AppContext } from '../../../../../context/AppContext';
 
 
 
 interface INavHeaderLinks { }
 
 export const NavHeaderLinks: React.FC<INavHeaderLinks> = () => {
-    const {user} = useContext(AppContext)
+    const { user } = useContext(AppContext)
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
@@ -27,7 +27,7 @@ export const NavHeaderLinks: React.FC<INavHeaderLinks> = () => {
 
                 <Button
                     key={page.id}
-                    sx={{ my: 2, color: "black", display: "block", fontSize:"1.5rem"}}
+                    className="block my-2 text-zinc-900 text-2xl"
                 >
                     <Link to={page.path}>
                         {page.pathName}

@@ -19,7 +19,9 @@ export const NavBarDrawerList: React.FC<INavBarDrawerList> = () => {
 
 
   return (
-    <List>
+    <List
+    className="bg-zinc-700"
+    >
 
       {user.email ? portfolioMenuItems.map((item, index) => (
         <ListItem key={item.id} disablePadding>

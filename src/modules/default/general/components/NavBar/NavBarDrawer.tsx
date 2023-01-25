@@ -1,4 +1,3 @@
-import { useState, useContext, useEffect } from "react";
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import NavBarDrawerList from "../NavBarDrawer/NavBarDrawerList";
@@ -9,7 +8,7 @@ interface INavBarDrawer {
     openDrawer: boolean | undefined
 }
 
-export const NavBarDrawer: React.FC<INavBarDrawer> = ({openDrawer}) => {
+export const NavBarDrawer: React.FC<INavBarDrawer> = ({ openDrawer }) => {
 
 
     return (
@@ -32,7 +31,6 @@ export const NavBarDrawer: React.FC<INavBarDrawer> = ({openDrawer}) => {
             }}
             variant="persistent"
             anchor="left"
-
             open={openDrawer}
         >
             <Divider />

@@ -23,21 +23,22 @@ export default function NewUser() {
         }
     };
     return (
-        <><MuiAppBar >
-            <Toolbar
-                sx={{ justifyContent: "space-between" }}
-            >
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={handleDrawer}
+        <>
+            <MuiAppBar >
+                <Toolbar
+                    className="justify-between"
                 >
-                    <MenuIcon />
-                </IconButton>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawer}
+                    >
+                        <MenuIcon />
+                    </IconButton>
 
 
-            </Toolbar>
-        </MuiAppBar>
+                </Toolbar>
+            </MuiAppBar>
             <Drawer
                 PaperProps={{
                     sx: {

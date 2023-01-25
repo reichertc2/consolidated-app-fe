@@ -7,7 +7,9 @@ export default function Login() {
 
     return (
 
-        <section style={{ width: "50%", margin: "0px auto", marginTop: "20%", padding: '3% 1%' }}>
+        <section
+            className="w-6/12 m-auto mt-14 px-5 py-3"
+        >
 
 
             <LoginForm />

@@ -12,17 +12,22 @@ interface INavBarDrawer {
 export const NavBarDrawer: React.FC<INavBarDrawer> = ({ open }: INavBarDrawer) => {
 
   return (
-    <>
+    <div
+      className="bg-zinc-300 flex min-h-screen"
+    >
       <Drawer
+
         PaperProps={{
+
           sx: {
-            marginTop: '70px'
-            //   height: 240
+            marginTop: '4.5%'
+
+
           }
         }}
         sx={{
           width: drawerWidth,
-          flexShrink: 0,
+          flexShrink: 50,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
@@ -32,11 +37,14 @@ export const NavBarDrawer: React.FC<INavBarDrawer> = ({ open }: INavBarDrawer) =
         anchor="left"
         open={open}
       >
-        <Divider />
+        <Divider
+
+        />
+
         <NavBarDrawerList />
       </Drawer>
       <MainBody />
-    </>
+    </div>
   );
 }
 

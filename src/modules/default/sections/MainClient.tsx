@@ -16,19 +16,22 @@ export const MainClient: React.FC<IMainClient> = () => {
             setOpen(true);
         }
     };
-    
+
     return (
 
-        <Box sx={{ display: 'flex', width: "100%" }} >
+        <Box
+            className="flex w-full min-h-screen"
+        >
+            <div
+                className="mt-16 w-full bg-yellow-900">
+                <NavBar
+                    handleDrawer={handleDrawer}
+                />
 
-            <NavBar
-                handleDrawer={handleDrawer}
-                
-            />
-
-            <NavBarDrawer
-                open={open} />
-
+                <NavBarDrawer
+                    open={open}
+                />
+            </div>
         </Box>
     );
 }

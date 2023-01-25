@@ -17,7 +17,9 @@ interface IMainBody { }
 export const MainBody: React.FC<IMainBody> = () => {
     return (
 
-        <main>
+        <main
+            className="w-6/12 m-auto mt-14 px-5 py-3 bg-zinc-900"
+        >
 
             <Routes>
                 <Route path="/" element={<HomePage />} />

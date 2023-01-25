@@ -26,14 +26,23 @@ export const NavBarDropDownMenu: React.FC<INavBarDropDownMenu> = () => {
     return (
 
 
-        <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+        <Box
+            className="grow-0"
+        >
+            <Tooltip
+                title="Open settings">
+                <IconButton
+                    className="p-0"
+                    onClick={handleOpenUserMenu}
+                >
+                    <Avatar
+                        alt="Remy Sharp"
+                        src="/static/images/avatar/2.jpg"
+                    />
                 </IconButton>
             </Tooltip>
             <Menu
-                sx={{ mt: '45px' }}
+                className="mt-11"
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
@@ -49,8 +58,14 @@ export const NavBarDropDownMenu: React.FC<INavBarDropDownMenu> = () => {
                 onClose={handleCloseUserMenu}
             >
                 {userDropdownMenuItems.map((path) => (
-                    <MenuItem key={path.id} onClick={handleCloseUserMenu}>
-                        <Typography textAlign="center">{path.pathName}</Typography>
+                    <MenuItem
+                        key={path.id}
+                        onClick={handleCloseUserMenu}
+                    >
+                        <Typography
+                            textAlign="center">
+                            {path.pathName}
+                        </Typography>
                     </MenuItem>
                 ))}
             </Menu>

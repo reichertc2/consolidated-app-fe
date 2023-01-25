@@ -31,9 +31,13 @@ export default function NavBarContainer() {
 
   return (
     <>
-      <Box sx={{ display: "flex", width: "100%" }}>
+      <Box
+        className="flex w-full bg-red-500 min-h-fit"
+      >
         <MuiAppBar>
-          <Toolbar sx={{ justifyContent: "space-between" }}>
+          <Toolbar
+            className="justify-between"
+          >
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -41,22 +45,15 @@ export default function NavBarContainer() {
             >
               <MenuIcon />
             </IconButton>
-            <Link to="/">
-              {/* <img
-                src={}
-                alt="school logo"
-                style={{ height: "70px" }}
-              /> */}
-            </Link>
-            <h2>Clinical Portal</h2>
+
             <NavBarHeaderLinks />
             {user.email ? <NavBarDropDownMenu /> : ""}
           </Toolbar>
         </MuiAppBar>
 
-        <MainBody />
+        <NavBarDrawer openDrawer={open} />
+
       </Box>
-      <NavBarDrawer openDrawer={open} />
     </>
   );
 }
