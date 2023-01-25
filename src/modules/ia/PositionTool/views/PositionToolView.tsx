@@ -1,9 +1,9 @@
-export default function TargetPortfolio() {
+export default function PositionToolView() {
 
 
     return (
         <article className='gridWrapper'>
-            Target Portfolio
+            Position Tool
         </article>
     );
 }

@@ -1,15 +1,17 @@
-import { IAccountInfo } from '../../models/IAccountInfo';
+import { IRetireProjectedIncome } from '../models/IAccountInfo';
 
 
 
-interface IRetireProjProps {
-    acctInfo: IAccountInfo;
+interface IRetireIncProps {
+    acctInfo?: IRetireProjectedIncome;
 }
 
-export const RetireProj: React.FC<IRetireProjProps> = (props: IRetireProjProps) => {
+export const RetireInc: React.FC<IRetireIncProps> = (props: IRetireIncProps) => {
+
+
 
     return (
-        <section className="rowItem" id="RetireProj">
+        <section className="rowItem" id="RetireInc">
             <table>
                 <thead>
                     <tr>
@@ -17,9 +19,9 @@ export const RetireProj: React.FC<IRetireProjProps> = (props: IRetireProjProps) 
                     </tr>
                     <tr>
                         <th></th>
-                        <th>Current</th>
-                        <th>Increase</th>
-                        <th>Year Begin</th>
+                        <th>Income</th>
+                        <th>ROI</th>
+                        <th>Median</th>
 
                     </tr>
                 </thead>
@@ -27,15 +29,16 @@ export const RetireProj: React.FC<IRetireProjProps> = (props: IRetireProjProps) 
                     {Object.entries(props).map(([key, value]) =>
                         <tr key={key} >
                             <td>{key}</td>
-                            <td>{value["Current"]}</td>
-                            <td>{value["Increase"]}</td>
-                            <td>{value["Year Begin"]}</td>
+                            <td>{value["Income"]}</td>
+                            <td>{value["ROI"]}</td>
+                            <td>{value["Median"]}</td>
                         </tr>
                     )
 
                     }
                 </tbody>
             </table>
+
         </section>
     );
 }

@@ -1,8 +1,8 @@
-import { IAccountInfo } from '../../models/IAccountInfo';
+import { IPortfolioSpecs } from '../models/IAccountInfo';
 
 
 interface IPortSpecsProps {
-    acctInfo: IAccountInfo;
+    acctInfo?: IPortfolioSpecs;
 }
 
 export const PortfolioSpecs: React.FC<IPortSpecsProps> = (props: IPortSpecsProps) => {
@@ -18,13 +18,20 @@ export const PortfolioSpecs: React.FC<IPortSpecsProps> = (props: IPortSpecsProps
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.entries(props).map(([key, value]) =>
-                        <tr key={key} >
-                            <td>{key}</td>
-                            <td>{value}</td>
+                    {
+                    props.acctInfo ? (
+                    Object.entries(props.acctInfo).map((key) =>
+                        <tr key={key[0]} >
+                            <td>{key[0]}</td>
+                            <td>{key[1]}</td>
                         </tr>
                     )
-
+                    ): (
+                        <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    )
                     }
                 </tbody>
             </table>

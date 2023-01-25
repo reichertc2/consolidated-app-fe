@@ -1,9 +1,9 @@
-import { IAccountInfo } from '../../models/IAccountInfo';
+import { ITopFivePositions } from '../models/IAccountInfo';
 
 
 
 interface ITopFivePosProps {
-    acctInfo: IAccountInfo;
+    acctInfo?: ITopFivePositions;
 }
 
 export const TopFivePos: React.FC<ITopFivePosProps> = (props: ITopFivePosProps) => {
@@ -18,8 +18,8 @@ export const TopFivePos: React.FC<ITopFivePosProps> = (props: ITopFivePosProps) 
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.entries(props).map(([key, value]) =>
-                        <tr key={key} >
+                    {Object.entries(props).map((key, value) =>
+                        <tr key={key.toString()} >
 
                             <td>{value}</td>
                         </tr>

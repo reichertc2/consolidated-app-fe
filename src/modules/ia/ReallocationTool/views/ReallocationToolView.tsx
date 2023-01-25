@@ -1,9 +1,9 @@
-export default function PositionTool() {
+export default function ReallocationToolView() {
 
 
     return (
         <article className='gridWrapper'>
-            Position Tool
+            Rallocation Tool
         </article>
     );
 }

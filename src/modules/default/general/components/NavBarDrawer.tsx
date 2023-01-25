@@ -1,9 +1,8 @@
 import Drawer from '@mui/material/Drawer';
-import Divider from '@mui/material/Divider';
 import NavBarDrawerList from './NavBarDrawer/NavBarDrawerList';
 import MainBody from '../../sections/MainBody';
 
-const drawerWidth = 240;
+const drawerWidth = 255;
 
 interface INavBarDrawer {
   open: boolean
@@ -13,21 +12,17 @@ export const NavBarDrawer: React.FC<INavBarDrawer> = ({ open }: INavBarDrawer) =
 
   return (
     <div
-      className="bg-zinc-300 flex min-h-screen"
+      className="bg-zinc-300 flex min-h-screen w-full"
     >
       <Drawer
 
         PaperProps={{
-
           sx: {
-            marginTop: '4.5%'
-
-
+            marginTop: '4%'
           }
         }}
         sx={{
-          width: drawerWidth,
-          flexShrink: 50,
+          flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
@@ -37,9 +32,7 @@ export const NavBarDrawer: React.FC<INavBarDrawer> = ({ open }: INavBarDrawer) =
         anchor="left"
         open={open}
       >
-        <Divider
-
-        />
+        {/* <Divider /> */}
 
         <NavBarDrawerList />
       </Drawer>

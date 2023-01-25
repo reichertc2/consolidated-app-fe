@@ -1,16 +1,17 @@
-import { AcctGrid } from './AcctDash/AcctGrid';
-import { PortfolioSpecs } from './AcctDash/PortfolioSpecs';
-import { ProjVsIdle } from './AcctDash/ProjVsIdle';
-import { RetireInc } from './AcctDash/RetireInc';
-import {RetireProj} from './AcctDash/RetireProj';
-import { SectorBreakout } from './AcctDash/SectorBreakout';
-import { TenYearGrowth } from './AcctDash/TenYearGrowth';
-import { TopFivePos } from './AcctDash/TopFivePos';
-
+import { AcctGrid } from '../components/AcctGrid';
+import { PortfolioSpecs } from '../components/PortfolioSpecs';
+import { ProjVsIdle } from '../components/ProjVsIdle';
+import { RetireInc } from '../components/RetireInc';
+import { RetireProj } from '../components/RetireProj';
+import { SectorBreakout } from '../components/SectorBreakout';
+import { TenYearGrowth } from '../components/TenYearGrowth';
+import { TopFivePos } from '../components/TopFivePos';
 import { IAccountInfo } from '../models/IAccountInfo';
 
 
-export default function AccountDash() {
+interface IAcctDash { }
+
+export const AccountDashView: React.FC<IAcctDash> = () => {
 
     let acctInfo: IAccountInfo = {
         general: {
@@ -178,23 +179,26 @@ export default function AccountDash() {
             },
         }
 
-        
-        
+
+
 
     };
 
     return (
         <article className='gridWrapper'>
-            <AcctGrid acctInfo={acctInfo} />
-            <TenYearGrowth acctInfo={acctInfo} />
-            <TopFivePos acctInfo={acctInfo} />
+            
+            <AcctGrid acctInfo={acctInfo.general} />
+            <TenYearGrowth acctInfo={acctInfo.tenYearGrowth} />
+            <TopFivePos acctInfo={acctInfo.topFivePositions} />
 
-            <SectorBreakout acctInfo={acctInfo} />
-            <ProjVsIdle acctInfo={acctInfo} />
-            <PortfolioSpecs acctInfo={acctInfo} />
+            <SectorBreakout acctInfo={acctInfo.sectorBreakout} />
+            <ProjVsIdle acctInfo={acctInfo.projectedVsIdle} />
+            <PortfolioSpecs acctInfo={acctInfo.portfolioSpecs} />
 
-            <RetireProj acctInfo={acctInfo} />
-            <RetireInc acctInfo={acctInfo} />
+            <RetireProj acctInfo={acctInfo.retireProjectedValue} />
+            <RetireInc acctInfo={acctInfo.retireProjectedIncome} />
         </article>
     );
 }
+
+export default AccountDashView;

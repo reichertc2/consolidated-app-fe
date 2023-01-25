@@ -1,9 +1,9 @@
-export default function Transactions() {
+export default function ReadingListView() {
 
 
     return (
         <article className='gridWrapper'>
-            Transactions
+            Reading List
         </article>
     );
 }

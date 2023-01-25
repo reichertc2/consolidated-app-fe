@@ -1,4 +1,6 @@
 import React from 'react';
+import { ITenYearGrowth } from '../models/IAccountInfo';
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -7,12 +9,11 @@ import {
     LineElement,
     Title,
     Tooltip,
+    Filler,
     Legend,
 } from 'chart.js';
 //import { Line } from 'react-chartjs-2';
-// import {faker} from '@faker-js/faker';
-
-import { IAccountInfo } from '../../models/IAccountInfo';
+// import { faker } from '@faker-js/faker';
 
 ChartJS.register(
     CategoryScale,
@@ -21,18 +22,19 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
+    Filler,
     Legend
 );
 
 export const options = {
     responsive: true,
     plugins: {
-        legend: {
-            position: 'top',
-        },
+        // legend: {
+        //   position: 'top',
+        // },
         title: {
             display: true,
-            text: 'Projected v Idle',
+            text: '10 Year Growth',
         },
     },
 };
@@ -41,35 +43,34 @@ export const options = {
 
 
 
-interface IProjVsIdleProps {
-    acctInfo: IAccountInfo;
+interface ITenYearGrowthProps {
+    acctInfo?: ITenYearGrowth;
 }
 
-export const ProjVsIdle: React.FC<IProjVsIdleProps> = (props: IProjVsIdleProps) => {
+export const TenYearGrowth: React.FC<ITenYearGrowthProps> = (props: ITenYearGrowthProps) => {
 
-    //const labels = acctInfo[0];
+
+
+    //let labels = acctInfo[0];
+
     //const data = {
-
     //    labels,
     //    datasets: [
     //        {
-    //            label: 'Projected',
+    //            fill: true,
+    //            label: 'Balance',
     //            data: acctInfo[1],
-    //            borderColor: 'rgb(255, 99, 132)',
-    //            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    //        },
-    //        {
-    //            label: 'Idle',
-    //            data: acctInfo[2],
     //            borderColor: 'rgb(53, 162, 235)',
     //            backgroundColor: 'rgba(53, 162, 235, 0.5)',
     //        },
+
     //    ],
     //};
     return (
-        <section className="rowItem" id="ProjVsIdle">
-            <h1>This is the ProjVsIdle</h1>
+        <section className="rowItem" id="TenYearGrowth">
+            <h1>This is the TenYearGrowth</h1>
             {/*<Line options={options} data={data} />*/}
+
         </section>
     );
 }

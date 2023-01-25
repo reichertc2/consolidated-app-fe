@@ -79,11 +79,7 @@ export const moduleHeaderLinks = [
   {
       id: 2,
       pathName: "Reading List",
-      path: "/portfolio/acct_dash"
+      path: "/reading/readinglist"
   },
-  {
-      id: 3,
-      pathName: "Temp - User Create",
-      path: "/user/RegisterEditUser"
-  },
+
 ];

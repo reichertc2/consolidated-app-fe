@@ -7,7 +7,8 @@ import NavBar from '../general/components/NavBar';
 interface IMainClient { }
 
 export const MainClient: React.FC<IMainClient> = () => {
-    const [open, setOpen] = useState(false);
+    
+    const [open, setOpen] = useState(true);
 
     const handleDrawer = () => {
         if (open === true) {
@@ -32,6 +33,7 @@ export const MainClient: React.FC<IMainClient> = () => {
                     open={open}
                 />
             </div>
+            
         </Box>
     );
 }

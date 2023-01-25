@@ -1,9 +1,9 @@
-export default function ReallocationTool() {
+export default function TargetPortfolioView() {
 
 
     return (
         <article className='gridWrapper'>
-            Rallocation Tool
+            Target Portfolio
         </article>
     );
 }

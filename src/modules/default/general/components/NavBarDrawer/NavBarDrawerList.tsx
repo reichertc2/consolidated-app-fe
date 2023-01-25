@@ -20,17 +20,22 @@ export const NavBarDrawerList: React.FC<INavBarDrawerList> = () => {
 
   return (
     <List
-    className="bg-zinc-700"
+      className="bg-zinc-700 min-h-screen"
     >
 
       {user.email ? portfolioMenuItems.map((item, index) => (
-        <ListItem key={item.id} disablePadding>
-          <ListItemButton>
-            <Link to={item.path} >
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+        <ListItem key={item.id} disablePadding
+        >
+          <ListItemButton
+          >
+            <Link
+              to={item.path}
+              className="m-0"
+            >
+              <ListItemIcon >
+                {index % 2 === 0 ? <InboxIcon className="inline-block text-zinc-200" /> : <MailIcon className="inline-block text-zinc-200" />}
               </ListItemIcon>
-              <ListItemText primary={item.pathName} sx={{ padding: "1px" }} />
+              <ListItemText primary={item.pathName} className="inline-block p-1 text-zinc-200" />
             </Link>
           </ListItemButton>
         </ListItem>
@@ -39,11 +44,13 @@ export const NavBarDrawerList: React.FC<INavBarDrawerList> = () => {
         noUserDrawerMenuItems.map((item, index) => (
           <ListItem key={item.id} disablePadding>
             <ListItemButton>
-              <Link to={item.path} >
+              <Link to={item.path}
+                className="m-0"
+              >
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {index % 2 === 0 ? <InboxIcon className="inline-block text-zinc-200" /> : <MailIcon className="inline-block text-zinc-200" />}
                 </ListItemIcon>
-                <ListItemText primary={item.pathName} sx={{ padding: "1px" }} />
+                <ListItemText primary={item.pathName} className="inline-block p-1 text-zinc-200" />
               </Link>
             </ListItemButton>
           </ListItem>

@@ -1,15 +1,14 @@
 import { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavBarHeaderLinks from "../general/components/NavBar/NavBarHeaderLinks";
 import NavBarDropDownMenu from "../general/components/NavBar/NavBarDropDownMenu";
 import NavBarDrawer from "../general/components/NavBar/NavBarDrawer";
-import MainBody from "./MainBody";
 import { AppContext } from "../../../context/AppContext";
+import Footer from "./Footer";
 
 export default function NavBarContainer() {
   const [open, setOpen] = useState<boolean | undefined>(false);
@@ -54,6 +53,7 @@ export default function NavBarContainer() {
         <NavBarDrawer openDrawer={open} />
 
       </Box>
+
     </>
   );
 }
