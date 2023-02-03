@@ -7,6 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { userDropdownMenuItems } from "../../menu/menu"
+import { Link } from 'react-router-dom';
 
 
 interface INavBarDropDownMenu { }
@@ -62,14 +63,16 @@ export const NavBarDropDownMenu: React.FC<INavBarDropDownMenu> = () => {
                         key={path.id}
                         onClick={handleCloseUserMenu}
                     >
-                        <Typography
-                            textAlign="center">
-                            {path.pathName}
-                        </Typography>
+                        <Link to={path.path} >
+                            <Typography
+                                textAlign="center">
+                                {path.pathName}
+                            </Typography>
+                        </Link>
                     </MenuItem>
                 ))}
             </Menu>
-        </Box>
+        </Box >
 
     );
 };

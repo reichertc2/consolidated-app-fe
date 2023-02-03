@@ -10,6 +10,7 @@ import TransactionsView from "../../ia/Transactions/views/TransactionsView";
 import LogoutView from "../auth/views/LogoutView"
 import HomePageView from "../general/views/HomePageView";
 import ReadingListView from "../../reading/readinglist/views/TransactionsView";
+import ProfileView from "../general/views/ProfileView";
 
 
 interface IMainBody { }
@@ -40,6 +41,7 @@ export const MainBody: React.FC<IMainBody> = () => {
                     <Route path="/user/login" element={<LoginView />} />
                     <Route path="/user/logout" element={<LogoutView />} />
                     <Route path="/user/RegisterEditUser" element={<RegisterEditView />} />
+                    <Route path="/user/profile" element={<ProfileView />} />
                 </Route>
 
             </Routes>

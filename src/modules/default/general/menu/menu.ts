@@ -46,7 +46,7 @@ export const portfolioMenuItems =
     {
       id: "1ua",
       pathName: "Profile",
-      path: "/",
+      path: "/user/profile",
       subPaths: []
     },
     // {
