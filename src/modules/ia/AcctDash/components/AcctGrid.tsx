@@ -10,7 +10,7 @@ export const AcctGrid: React.FC<IAcctGridGeneralProps> = (props: IAcctGridGenera
 
     return (
         <section
-            className="col-start-1 col-end-2 row-start-1 row-end-3 w-full bg-red-500"
+            className="col-start-1 col-end-2 row-start-1 row-end-2 w-full bg-red-500"
         >
             <DataTable
                 title={"Portfolio"}

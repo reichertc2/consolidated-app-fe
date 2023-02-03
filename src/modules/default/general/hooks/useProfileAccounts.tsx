@@ -1,31 +1,30 @@
 import { CancelToken } from "apisauce";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../../context/AppContext";
-import apiAccountDash from "../apis/apiAccountDash";
+import apiAccounts from "../apis/apiAccounts";
 
 
-export default function useAccountDash() {
+export default function useProfileAccounts() {
     const { user } = useContext(AppContext);
-    const [acctInfo, setAcctInfo] = useState<any>({})
+    const [accts, setAcct] = useState<any>({})
 
     useEffect(() => {
         let response: any;
         const source = CancelToken.source();
 
 
-        const getAccountDash = async () => {
-            response = await apiAccountDash.get( user.token,source.token);
-            console.log("useAccountDash", response)
-
-            setAcctInfo(response)
+        const getProfileAccounts = async () => {
+            response = await apiAccounts.get( user.token,source.token);
+            console.log("useProfileAccounts", response)
+            setAcct(response)
         };
         
-        getAccountDash();
+        getProfileAccounts();
         
         return () => {
             source.cancel();
         };
     }, []);
 
-    return acctInfo
+    return accts
 }
