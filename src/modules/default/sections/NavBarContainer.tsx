@@ -4,11 +4,11 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import NavBarHeaderLinks from "../general/components/NavBar/NavBarHeaderLinks";
-import NavBarDropDownMenu from "../general/components/NavBar/NavBarDropDownMenu";
-import NavBarDrawer from "../general/components/NavBar/NavBarDrawer";
+import NavBarHeaderLinks from "../common/components/NavBar/NavBarHeaderLinks";
+import NavBarDropDownMenu from "../common/components/NavBar/NavBarDropDownMenu";
+import NavBarDrawer from "../common/components/NavBar/NavBarDrawer";
 import { AppContext } from "../../../context/AppContext";
-import Footer from "./Footer";
+
 
 export default function NavBarContainer() {
   const [open, setOpen] = useState<boolean | undefined>(false);

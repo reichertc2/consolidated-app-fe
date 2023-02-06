@@ -8,7 +8,7 @@ import { SectorBreakout } from '../components/SectorBreakout';
 import { TenYearGrowth } from '../components/TenYearGrowth';
 import { TopFivePos } from '../components/TopFivePos';
 import useAccountDash from '../hooks/useAccountDash';
-import Error from "../../../default/general/components/Error"
+import Error from "../../../default/common/components/Error"
 
 interface IAcctDash { }
 

@@ -5,7 +5,7 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import NavBarHeaderLinks from "../../general/components/NavBar/NavBarHeaderLinks";
+import NavBarHeaderLinks from "../../common/components/NavBar/NavBarHeaderLinks";
 import { Drawer } from "@mui/material";
 
 const drawerWidth = 240;

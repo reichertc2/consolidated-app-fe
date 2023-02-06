@@ -8,14 +8,11 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Box, CircularProgress } from "@mui/material";
 import { useContext } from "react";
-import { AppContext } from "../../../../../context/AppContext";
-import useProfileAccounts from "../../hooks/useProfileAccounts";
+import { AppContext } from "../../../../context/AppContext";
+import useProfileAccounts from "../hooks/useProfileAccounts";
 import ProfileAccount from "./ProfileAccount";
-import Error from "../../components/Error"
+import Error from "../../common/components/Error"
 import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import ListIcon from '@mui/icons-material/List';
 
 interface IProfileAccountList { }
 
@@ -67,22 +64,10 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                 </TableHead>
                 <TableBody>
                     {accounts.map((row: IAccount) => (
-                        <TableRow
-                            key={row.name}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-
-                            <TableCell align="right">{row.institution}</TableCell>
-                            <TableCell align="right">{row.classification}</TableCell>
-                            <TableCell align="right">{row.balance}</TableCell>
-                            <TableCell align="right">            <ListIcon />
-                                <EditIcon />
-                                <DeleteIcon />
-                            </TableCell>
-                        </TableRow>
+                        <ProfileAccount
+                            key={row.id}
+                            account={row}
+                        />
                     ))}
                 </TableBody>
             </Table>

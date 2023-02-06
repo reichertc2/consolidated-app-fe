@@ -1,5 +1,5 @@
-import ProfileAccountList from "../components/Profile/ProfileAccountList";
-import ProfileHero from "../components/Profile/ProfileHero";
+import ProfileAccountList from "../components/ProfileAccountList";
+import ProfileHero from "../components/ProfileHero";
 
 
 

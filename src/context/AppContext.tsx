@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { IAppContext, IProps } from "../modules/default/general/models/IContextInterfaces";
+import { IAppContext, IProps } from "../modules/default/common/models/IContextInterfaces";
 import { IUserSettings } from "../modules/default/auth/models/IUserInterfaces";
 
 

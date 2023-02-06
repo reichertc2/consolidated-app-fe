@@ -2,8 +2,8 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar from '@mui/material/AppBar';
-import NavBarHeaderLinks from './NavBar/NavBarHeaderLinks';
-import NavBarDropDownMenu from './NavBar/NavBarDropDownMenu';
+import NavBarHeaderLinks from '../components/NavBar/NavBarHeaderLinks';
+import NavBarDropDownMenu from '../components/NavBar/NavBarDropDownMenu';
 import { useContext } from 'react';
 import { AppContext } from '../../../../context/AppContext';
 

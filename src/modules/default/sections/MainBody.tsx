@@ -8,9 +8,9 @@ import PositionToolView from "../../ia/PositionTool/views/PositionToolView";
 import ReallocationToolView from "../../ia/ReallocationTool/views/ReallocationToolView";
 import TransactionsView from "../../ia/Transactions/views/TransactionsView";
 import LogoutView from "../auth/views/LogoutView"
-import HomePageView from "../general/views/HomePageView";
+import HomePageView from "../common/views/HomePageView";
 import ReadingListView from "../../reading/readinglist/views/TransactionsView";
-import ProfileView from "../general/views/ProfileView";
+import ProfileView from "../profile/views/ProfileView";
 
 
 interface IMainBody { }

@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { useContext } from "react";
 import {AppContext} from "../../../../context/AppContext";
-import HomePage from "../components/HomePage";
+import HomePage from "../../common/components/HomePage";
 
 
 interface IHomePageView { }

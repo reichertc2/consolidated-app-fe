@@ -1,5 +1,5 @@
 import Drawer from '@mui/material/Drawer';
-import NavBarDrawerList from './NavBarDrawer/NavBarDrawerList';
+import NavBarDrawerList from '../components/NavBarDrawer/NavBarDrawerList';
 import MainBody from '../../sections/MainBody';
 
 const drawerWidth = 255;
