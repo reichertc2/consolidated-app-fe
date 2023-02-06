@@ -13,6 +13,7 @@ import useProfileAccounts from "../hooks/useProfileAccounts";
 import ProfileAccount from "./ProfileAccount";
 import Error from "../../common/components/Error"
 import AddIcon from '@mui/icons-material/Add';
+import { Link } from 'react-router-dom';
 
 interface IProfileAccountList { }
 
@@ -54,11 +55,13 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Account Name</TableCell>
-                        <TableCell align="right">Institution</TableCell>
-                        <TableCell align="right">Classification</TableCell>
-                        <TableCell align="right">Balance</TableCell>
+                        <TableCell align="center">Institution</TableCell>
+                        <TableCell align="center">Classification</TableCell>
+                        <TableCell align="center">Balance</TableCell>
                         <TableCell align="right">
-                            <AddIcon />
+                            <Link to="/user/profile/add_account">
+                                <AddIcon />
+                            </Link>
                         </TableCell>
                     </TableRow>
                 </TableHead>

@@ -1,9 +1,10 @@
 import apiClientTokenAuth from "../../auth/api/clientTokenAuth";
+import { IAccountEntryFormValues } from "../models/IAccount";
 
 
 const endpoint = "api/profile/accounts";
 
-const get = async ( user:any, cancelToken:any) => {
+const get = async ( user:any, cancelToken: any) => {
     let error 
     let accounts
       const response: any = await apiClientTokenAuth(user, cancelToken).get(endpoint);
@@ -20,8 +21,12 @@ const get = async ( user:any, cancelToken:any) => {
   };
 };
 
+const post = async (user: any, data: IAccountEntryFormValues, cancelToken: any) => {
+  const response = await apiClientTokenAuth(user,cancelToken).post(endpoint, data);
+  return response.ok;
+};
 
 export default {
   get,
-  
+  post
 };

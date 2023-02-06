@@ -1,16 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from '../sections/Footer';
-import LoginView from '../auth/views/LoginView';
-import RegisterEditView from '../auth/views/RegisterEditView'
-import AccountDashView from "../../ia/AcctDash/views/AccountDashView";
-import TargetPortfolioView from "../../ia/TargetPortfolio/views/TargetPortfolioView";
-import PositionToolView from "../../ia/PositionTool/views/PositionToolView";
-import ReallocationToolView from "../../ia/ReallocationTool/views/ReallocationToolView";
-import TransactionsView from "../../ia/Transactions/views/TransactionsView";
-import LogoutView from "../auth/views/LogoutView"
 import HomePageView from "../common/views/HomePageView";
-import ReadingListView from "../../reading/readinglist/views/TransactionsView";
-import ProfileView from "../profile/views/ProfileView";
+import { readingListRoutes } from "../../reading/routes/menu";
+import { portfolioListRoutes } from "../../ia/routes/menu";
+import { userListRoutes } from "../routes/menu";
 
 
 interface IMainBody { }
@@ -25,26 +18,49 @@ export const MainBody: React.FC<IMainBody> = () => {
             <Routes>
                 <Route path="/" element={<HomePageView />} />
                 <Route path="/portfolio"  >
-                    <Route path="/portfolio/acct_dash" element={<AccountDashView />} />
-                    <Route path="/portfolio/target_portfolio" element={<TargetPortfolioView />} />
-                    <Route path="/portfolio/reallocation_tool" element={<ReallocationToolView />} />
-                    <Route path="/portfolio/position_tool" element={<PositionToolView />} />
-                    <Route path="/portfolio/transactions" element={<TransactionsView />} />
+
+                    {
+                        portfolioListRoutes.map(route =>
+                            <Route
+                                key={`${route.id}-profile-route`}
+                                path={route.path}
+                                element={route.element}
+                            />
+                        )
+                    }
 
                 </Route>
 
                 <Route path="/reading" >
-                    <Route path="/reading/readinglist" element={<ReadingListView />} />
+
+                    {
+                        readingListRoutes.map(route =>
+                            <Route
+                                key={`${route.id}-reading-route`}
+                                path={route.path}
+                                element={route.element}
+                            />
+                        )
+                    }
+
                 </Route>
 
                 <Route path="/user" >
-                    <Route path="/user/login" element={<LoginView />} />
-                    <Route path="/user/logout" element={<LogoutView />} />
-                    <Route path="/user/RegisterEditUser" element={<RegisterEditView />} />
-                    <Route path="/user/profile" element={<ProfileView />} />
+
+                    {
+                        userListRoutes.map(route =>
+                            <Route
+                                key={`${route.id}-user-route`}
+                                path={route.path}
+                                element={route.element}
+                            />
+                        )
+                    }
+
                 </Route>
 
             </Routes>
+            
             <Footer />
 
         </main>
