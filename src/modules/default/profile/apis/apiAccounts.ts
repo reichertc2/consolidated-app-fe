@@ -3,6 +3,7 @@ import { IAccountEntryFormValues } from "../models/IAccount";
 
 
 const endpoint = "api/profile/accounts";
+const ia_endpoint = "api/ia/profile/accounts"
 
 const get = async ( user:any, cancelToken: any) => {
     let error 
@@ -22,7 +23,7 @@ const get = async ( user:any, cancelToken: any) => {
 };
 
 const post = async (user: any, data: IAccountEntryFormValues, cancelToken: any) => {
-  const response = await apiClientTokenAuth(user,cancelToken).post(endpoint, data);
+  const response = await apiClientTokenAuth(user,cancelToken).post(ia_endpoint, data);
   return response.ok;
 };
 

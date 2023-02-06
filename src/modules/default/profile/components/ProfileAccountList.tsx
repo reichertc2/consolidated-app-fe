@@ -66,12 +66,16 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {accounts.map((row: IAccount) => (
-                        <ProfileAccount
-                            key={row.id}
-                            account={row}
-                        />
-                    ))}
+                    {
+                        accounts.map((row: IAccount) =>
+                        (
+                            <ProfileAccount
+                                key={row.id}
+                                account={row}
+                            />
+                        )
+                        )
+                    }
                 </TableBody>
             </Table>
         </TableContainer>

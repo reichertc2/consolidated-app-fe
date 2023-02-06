@@ -51,8 +51,8 @@ export default function AccountEntryForm() {
 
             <form onSubmit={formik.handleSubmit}>
                 <TextField
-                    id="acctName"
-                    name="acctName"
+                    id="name"
+                    name="name"
                     fullWidth
                     sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
                     label="Name"

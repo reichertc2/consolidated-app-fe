@@ -20,7 +20,7 @@ export default function useCreateAccount(account: IAccountEntryFormValues) {
             console.log('useCreateAccount createAccount: ',source.token)
             if (response) {
                 setAlert({ msg: `User: ${account.name} Created`, cat: "success" });
-                navigate("/user/login");
+                navigate("/user/profile");
             } else if (response !== undefined && response === false) {
                 setAlert({ msg: `Please Reauthorize Your Account`, cat: "warning" });
                 navigate("/");
