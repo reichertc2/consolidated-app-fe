@@ -1,3 +1,4 @@
+import AccountTransactionListView from "../../ia/Transactions/views/AccountTransactionListView";
 import LoginView from "../auth/views/LoginView";
 import LogoutView from "../auth/views/LogoutView";
 import RegisterEditView from "../auth/views/RegisterEditView";
@@ -30,5 +31,10 @@ export const userListRoutes =
     id: "u5",
     element: <AccountEntryView />,
     path: "/user/profile/add_account",
+  },
+  {
+    id: "p6",
+    element: <AccountTransactionListView  />,
+    path: "/user/profile/portfolio/ia/account/list_transactions/:id",
   },
 ]

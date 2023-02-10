@@ -32,6 +32,7 @@ export const portfolioListRoutes =
     element: <TransactionsView />,
     path: "/portfolio/transactions",
   },
+
 ]
 
 

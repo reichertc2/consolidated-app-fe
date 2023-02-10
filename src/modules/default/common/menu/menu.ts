@@ -62,7 +62,7 @@ export const portfolioMenuItems =
       subPaths: []
     },
     {
-      id: "1ub",
+      id: "1uc",
       pathName: "Logout",
       path: "/user/logout",
       subPaths: []

@@ -1,6 +1,6 @@
 import apiClient from "./clientBasicAuth";
 
-const endpoint = `${process.env.REACT_APP_SERVER}auth/login`;  
+const endpoint = `auth/login`;  
 
 
 export const getUser = async (email:string, password:string, cancelToken:any) => {

@@ -1,14 +1,18 @@
-import apiClientTokenAuth from "../../auth/api/clientTokenAuth";
-import { IAccountEntryFormValues } from "../models/IAccount";
+import apiClientTokenAuth from "../../../default/auth/api/clientTokenAuth";
+import { ITransactionEntryFormValues } from "../models/ITransactions";
 
 
-const endpoint = "api/profile/accounts";
-const ia_endpoint = "api/ia/profile/accounts"
+const endpoint = "api/profile/account/transaction";
+const ia_endpoint = "api/ia/profile/account/transaction"
 
 
-export interface IAccountSubmission {
+export interface ITransactionSubmission {
   user: any
-  data: IAccountEntryFormValues
+  data: {
+    account: number,
+    transaction:ITransactionEntryFormValues
+  }
+  
 }
 
 const get = async ( user:any, cancelToken: any) => {
@@ -28,7 +32,7 @@ const get = async ( user:any, cancelToken: any) => {
   };
 };
 
-const post = async (user: any, data:IAccountSubmission, cancelToken: any) => {
+const post = async (user: any, data:ITransactionSubmission, cancelToken: any) => {
   const response = await apiClientTokenAuth(user,cancelToken).post(ia_endpoint, data);
   return response.ok;
 };
