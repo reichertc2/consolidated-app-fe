@@ -14,46 +14,50 @@ interface IAcctDash { }
 
 export const AccountDashView: React.FC<IAcctDash> = () => {
 
-    const {acctInfo,error}= useAccountDash()
+  const { acctInfo, error } = useAccountDash()
 
 
-    if (error) {
-        return (
-          <Box sx={{ display: "flex" }}>
-            <Error>{error}</Error>
-          </Box>
-        );
-      }
-
-      if (!acctInfo) {
-        return (
-          <Box sx={{ display: "flex" }}>
-            <CircularProgress />
-          </Box>
-        );
-      }
-
-
+  if (error) {
     return (
-        <article
-            className='m-4 grid align-top grid-rows-5 gap-2.5 auto-rows-max '
-        >
-            {acctInfo ? (<>
-                <AcctGrid acctInfo={acctInfo?.general} />
-                <TenYearGrowth acctInfo={acctInfo?.tenYearGrowth} />
-                <TopFivePos acctInfo={acctInfo?.topFivePositions} />
-
-                <SectorBreakout acctInfo={acctInfo?.sectorBreakout} />
-                <ProjVsIdle acctInfo={acctInfo?.projectedVsIdle} />
-                <PortfolioSpecs acctInfo={acctInfo?.portfolioSpecs} />
-
-                <RetireProj acctInfo={acctInfo?.retireProjectedValue} />
-                <RetireInc acctInfo={acctInfo?.retireProjectedIncome} />
-            </>
-            ) : ""}
-
-        </article>
+      <Box sx={{ display: "flex" }}>
+        <Error>{error}</Error>
+      </Box>
     );
+  }
+
+  if (!acctInfo) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+
+  return (
+    <article
+      className='flex flex-row'
+    >
+      {acctInfo ? (<>
+        <div>
+          <AcctGrid acctInfo={acctInfo?.general} />
+          <SectorBreakout acctInfo={acctInfo?.sectorBreakout} />
+          <RetireProj acctInfo={acctInfo?.retireProjectedValue} />
+        </div>
+        <div>
+          <TenYearGrowth acctInfo={acctInfo?.tenYearGrowth} />
+          <ProjVsIdle acctInfo={acctInfo?.projectedVsIdle} />
+          <RetireInc acctInfo={acctInfo?.retireProjectedIncome} />
+        </div>
+        <div>
+          <TopFivePos acctInfo={acctInfo?.topFivePositions} />
+          <PortfolioSpecs acctInfo={acctInfo?.portfolioSpecs} />
+        </div>
+      </>
+      ) : ""}
+
+    </article>
+  );
 }
 
 export default AccountDashView;

@@ -11,7 +11,7 @@ export const RetireInc: React.FC<IRetireIncProps> = (props: IRetireIncProps) => 
 
 
     return (
-        <section className="rowItem" id="RetireInc">
+        <section className="" >
             <table>
                 <thead>
                     <tr>

@@ -9,7 +9,7 @@ interface ITopFivePosProps {
 export const TopFivePos: React.FC<ITopFivePosProps> = (props: ITopFivePosProps) => {
 
     return (
-        <section className="rowItem" id="TopFivePos">
+        <section className="basis-1/4">
             <table>
                 <thead>
                     <tr>

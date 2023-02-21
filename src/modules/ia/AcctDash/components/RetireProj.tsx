@@ -9,7 +9,7 @@ interface IRetireProjProps {
 export const RetireProj: React.FC<IRetireProjProps> = (props: IRetireProjProps) => {
 
     return (
-        <section className="rowItem" id="RetireProj">
+        <section className="">
             <table>
                 <thead>
                     <tr>

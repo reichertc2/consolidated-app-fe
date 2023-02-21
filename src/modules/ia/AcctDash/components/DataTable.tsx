@@ -10,9 +10,10 @@ export const DataTable: React.FC<IAcctGridGeneralProps> = (props: IAcctGridGener
 
     return (
         
-            <table className="table-auto">
+            <table className=''>
                 <thead>
-                    <tr>
+                    <tr
+                    className=''>
                         <th>{props.title}</th>
                     </tr>
                 </thead>
@@ -21,7 +22,9 @@ export const DataTable: React.FC<IAcctGridGeneralProps> = (props: IAcctGridGener
                         props.acctInfo ? (
 
                             Object.entries(props.acctInfo).map((key) =>
-                                <tr key={`${props.title}-${key[0]}`} >
+                                <tr 
+                                key={`${props.title}-${key[0]}`} 
+                                >
                                     <td>{key[0]}</td>
                                     <td>{key[1]}</td>
                                 </tr>

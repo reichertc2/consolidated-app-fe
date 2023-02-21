@@ -11,8 +11,7 @@ export const PortfolioSpecs: React.FC<IPortSpecsProps> = (props: IPortSpecsProps
 
     return (
         <section
-            className="rowItem"
-            id="PortfolioSpecs"
+            className=""
         >
 
             <DataTable
