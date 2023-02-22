@@ -28,7 +28,7 @@ export const ProfileAccount: React.FC<IProfileAccountProps> = ({ account }) => {
             <TableCell align="right">{account.classification}</TableCell>
             <TableCell align="right">{account.balance}</TableCell>
             <TableCell align="right">
-                <Link to={generatePath(`portfolio/ia/account/list_transactions/:id`, { id })}>
+                <Link to={generatePath(`/portfolio/ia/account/list_transactions/:id`, { id })}>
                     <ListIcon />
                 </Link>
                 <EditIcon />

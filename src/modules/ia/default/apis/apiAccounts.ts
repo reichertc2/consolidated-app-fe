@@ -1,5 +1,5 @@
-import apiClientTokenAuth from "../../auth/api/clientTokenAuth";
-import { IAccountEntryFormValues } from "../models/IAccount";
+import apiClientTokenAuth from "../../../default/auth/api/clientTokenAuth";
+import { IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
 
 
 const endpoint = "api/profile/accounts";

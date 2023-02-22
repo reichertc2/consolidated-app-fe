@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import useCreateAccount from "../hooks/useCreateAccount";
-import {  IAccountEntryFormValues } from "../models/IAccount";
+import {  IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
 import Grid from "@mui/material/Grid";
 import { Button, TextField } from "@mui/material";
 

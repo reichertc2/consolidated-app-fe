@@ -2,7 +2,7 @@ import AccountTransactionListView from "../../ia/Transactions/views/AccountTrans
 import LoginView from "../auth/views/LoginView";
 import LogoutView from "../auth/views/LogoutView";
 import RegisterEditView from "../auth/views/RegisterEditView";
-import AccountEntryView from "../profile/views/AccountEntryView";
+import AccountEntryView from "../../ia/default/views/AccountEntryView";
 import ProfileView from "../profile/views/ProfileView";
 
 export const userListRoutes = 
@@ -27,14 +27,5 @@ export const userListRoutes =
     element: <ProfileView />,
     path: "/user/profile",
   },
-  {
-    id: "u5",
-    element: <AccountEntryView />,
-    path: "/user/profile/add_account",
-  },
-  {
-    id: "p6",
-    element: <AccountTransactionListView  />,
-    path: "/user/profile/portfolio/ia/account/list_transactions/:id",
-  },
+
 ]

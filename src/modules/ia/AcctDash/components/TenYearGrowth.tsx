@@ -38,7 +38,6 @@ export const options = {
 };
 
 
-
 let defaultProps: ITenYearGrowth = {
     "tenYearGrowthYear": [
         '2012',
@@ -54,26 +53,22 @@ let defaultProps: ITenYearGrowth = {
         '2022',
     ],
     "tenYearGrowthValue": [
-        0,
-        0,
-        0,
         30000,
-        15000,
-        20000,
-        21000,
-        21000,
-        20000,
-        37000,
-        53000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
     ],
 }
 
 interface ITenYearGrowthProps {
     acctInfo?: ITenYearGrowth;
-}
-
-interface IChartJsData {
-
 }
 
 
@@ -104,12 +99,10 @@ export const TenYearGrowth: React.FC<ITenYearGrowthProps> = (props: ITenYearGrow
 
         ],
     };
-    console.log(props.acctInfo)
 
     return (
         <section className='basis-1/2 bg-slate-600'
         >
-            {/* <h1>This is the TenYearGrowth</h1> */}
             <Line
                 options={options}
                 data={data}

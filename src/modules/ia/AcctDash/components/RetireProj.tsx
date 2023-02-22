@@ -8,6 +8,7 @@ interface IRetireProjProps {
 
 export const RetireProj: React.FC<IRetireProjProps> = (props: IRetireProjProps) => {
 
+
     return (
         <section className="">
             <table>
@@ -24,14 +25,16 @@ export const RetireProj: React.FC<IRetireProjProps> = (props: IRetireProjProps) 
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.entries(props).map(([key, value]) =>
-                        <tr key={key} >
-                            <td>{key}</td>
-                            <td>{value["Current"]}</td>
-                            <td>{value["Increase"]}</td>
-                            <td>{value["Year Begin"]}</td>
-                        </tr>
-                    )
+                    {
+                        props.acctInfo ?
+                            Object.entries(props.acctInfo).map(([key, value]) =>
+                                <tr key={key} >
+                                    <td>{key}</td>
+                                    <td>{value["current"]}</td>
+                                    <td>{value["increase"]}</td>
+                                    <td>{value["yearBegin"]}</td>
+                                </tr>
+                            ) : ""
 
                     }
                 </tbody>

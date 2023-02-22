@@ -1,7 +1,7 @@
 import { CancelToken } from "apisauce";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../../context/AppContext";
-import apiAccounts from "../apis/apiAccounts";
+import apiAccounts from "../../../ia/default/apis/apiAccounts";
 
 
 export default function useProfileAccounts() {
@@ -15,7 +15,6 @@ export default function useProfileAccounts() {
 
         const getProfileAccounts = async () => {
             response = await apiAccounts.get( user.token,source.token);
-            console.log("useProfileAccounts", response)
             setAcct(response)
         };
         

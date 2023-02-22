@@ -6,14 +6,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box, CircularProgress } from "@mui/material";
-import { useContext } from "react";
-import { AppContext } from "../../../../context/AppContext";
+import { Box } from "@mui/material";
 import useProfileAccounts from "../hooks/useProfileAccounts";
 import ProfileAccount from "./ProfileAccount";
 import Error from "../../common/components/Error"
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
+import TableRowMessge from '../../common/components/TableRowMessage';
 
 interface IProfileAccountList { }
 
@@ -28,9 +27,7 @@ export interface IAccount {
 
 export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
 
-    const { user } = useContext(AppContext)
     const { accounts, error } = useProfileAccounts()
-
 
     if (error) {
         return (
@@ -39,15 +36,6 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
             </Box>
         );
     }
-
-    if (!accounts) {
-        return (
-            <Box sx={{ display: "flex" }}>
-                <CircularProgress />
-            </Box>
-        );
-    }
-
 
     return (
         <TableContainer component={Paper}>
@@ -59,14 +47,14 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                         <TableCell align="center">Classification</TableCell>
                         <TableCell align="center">Balance</TableCell>
                         <TableCell align="right">
-                            <Link to="/user/profile/add_account">
+                            <Link to="/portfolio/add_account">
                                 <AddIcon />
                             </Link>
                         </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {
+                    {accounts ?
                         accounts.map((row: IAccount) =>
                         (
                             <ProfileAccount
@@ -74,7 +62,11 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                                 account={row}
                             />
                         )
-                        )
+                        ) :
+                        <TableRowMessge
+                            message={error ?? "No records found"}
+                            columns={5}
+                        />
                     }
                 </TableBody>
             </Table>

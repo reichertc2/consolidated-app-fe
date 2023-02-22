@@ -4,7 +4,6 @@ import { ISectorBreakout } from '../models/IAccountInfo';
 import { Pie } from 'react-chartjs-2';
 
 
-
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface ISectorBreakoutProps {
@@ -28,19 +27,19 @@ let defaultProps: ISectorBreakout = {
         'Utilities',
     ],
     "sectorValue": [
-        10,
-        15,
-        0,
-        5,
-        11,
-        14,
-        4,
-        8,
-        8,
-        0,
-        6,
-        11,
-        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
     ],
 }
 

@@ -5,13 +5,12 @@ import Grid from "@mui/material/Grid";
 import { Button, TextField } from "@mui/material";
 import { ITransactionEntryFormValues } from "../models/ITransactions";
 import useTransaction from "../hooks/useTransaction";
-import { useParams } from "react-router-dom";
 
 
 
 // Defining our yup validation
 const FormSchema = Yup.object({
-    date: Yup.number().required(),
+    date: Yup.date().required(),
     transaction_type: Yup.string().required(),
     security_type: Yup.string().required(),
     symbol: Yup.string().required(),
@@ -33,17 +32,20 @@ const initialValues = {
 
 };
 
-export default function TransactionEntryForm() {
+interface ITransactionEntryForm{
+    acctId: string
+}
+
+export default function TransactionEntryForm(props : ITransactionEntryForm) {
 
     const [newTransaction, setNewTransaction] = useState<ITransactionEntryFormValues>(initialValues);
 
-    const { acctId } = useParams()
 
-    useTransaction(Number(acctId) ?? 0, newTransaction);
+    useTransaction(Number(props.acctId) ?? 0, newTransaction);
 
     const handleSubmit = (values: ITransactionEntryFormValues) => {
 
-        console.log("handleSubmit")
+        console.log("handleSubmit", values)
         setNewTransaction(values)
     };
 
@@ -68,7 +70,7 @@ export default function TransactionEntryForm() {
                     fullWidth
                     sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
                     label="Date"
-                    placeholder="Name"
+                    placeholder="Date"
                     value={formik.values.date}
                     onChange={formik.handleChange}
                     error={formik.touched.date && Boolean(formik.errors.date)}
@@ -168,7 +170,7 @@ export default function TransactionEntryForm() {
                         textTransform: "capitalize",
                         fontSize: "18px",
                     }}>
-                    Enter Account
+                    Enter Transaction
                 </Button>
             </form>
 

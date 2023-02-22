@@ -26,14 +26,15 @@ export const RetireInc: React.FC<IRetireIncProps> = (props: IRetireIncProps) => 
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.entries(props).map(([key, value]) =>
-                        <tr key={key} >
-                            <td>{key}</td>
-                            <td>{value["Income"]}</td>
-                            <td>{value["ROI"]}</td>
-                            <td>{value["Median"]}</td>
-                        </tr>
-                    )
+                    {props.acctInfo ?
+                        Object.entries(props.acctInfo).map(([key, value]) =>
+                            <tr key={key} >
+                                <td>{key}</td>
+                                <td>{value["income"]}</td>
+                                <td>{value["roi"]}</td>
+                                <td>{value["median"]}</td>
+                            </tr>
+                        ) : ""
 
                     }
                 </tbody>

@@ -3,7 +3,7 @@ import { CancelToken } from "apisauce";
 import apiUser, { IAccountSubmission } from "../apis/apiAccounts";
 import { AppContext } from "../../../../context/AppContext";
 import { useNavigate } from "react-router-dom";
-import { IAccountEntryFormValues } from "../models/IAccount";
+import { IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
 
 
 export default function useCreateAccount(account: IAccountEntryFormValues) {
@@ -15,6 +15,7 @@ export default function useCreateAccount(account: IAccountEntryFormValues) {
         "user": user.token,
         "data": account
     }
+    
     useEffect(() => {
         let response;
         const source = CancelToken.source();
