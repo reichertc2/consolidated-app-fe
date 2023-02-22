@@ -13,6 +13,7 @@ import Error from "../../common/components/Error"
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
 import TableRowMessge from '../../common/components/TableRowMessage';
+import AddItemLink from '../../common/components/AddItemLink';
 
 interface IProfileAccountList { }
 
@@ -47,14 +48,17 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                         <TableCell align="center">Classification</TableCell>
                         <TableCell align="center">Balance</TableCell>
                         <TableCell align="right">
-                            <Link to="/portfolio/add_account">
-                                <AddIcon />
-                            </Link>
+                            
+                            <AddItemLink
+                                id={""}
+                                path={"/portfolio/add_account"}
+                            />
+
                         </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {accounts ?
+                    {accounts && accounts.length !== 0 ?
                         accounts.map((row: IAccount) =>
                         (
                             <ProfileAccount

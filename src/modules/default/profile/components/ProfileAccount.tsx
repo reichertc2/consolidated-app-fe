@@ -3,8 +3,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ListIcon from '@mui/icons-material/List';
 import { TableCell, TableRow } from "@mui/material";
-import { generatePath, Link } from 'react-router-dom'
 import { useState } from "react";
+import AddItemLink from "../../common/components/AddItemLink";
 
 interface IProfileAccountProps {
     account: IAccount
@@ -28,9 +28,12 @@ export const ProfileAccount: React.FC<IProfileAccountProps> = ({ account }) => {
             <TableCell align="right">{account.classification}</TableCell>
             <TableCell align="right">{account.balance}</TableCell>
             <TableCell align="right">
-                <Link to={generatePath(`/portfolio/ia/account/list_transactions/:id`, { id })}>
-                    <ListIcon />
-                </Link>
+
+                <AddItemLink
+                    id={id}
+                    path={`/portfolio/ia/account/list_transactions/:id`}
+                    customIcon={<ListIcon />}
+                />
                 <EditIcon />
                 <DeleteIcon />
             </TableCell>

@@ -20,3 +20,8 @@ export interface ITransactionEntryFormValues {
     price: number
     description: string
 }
+
+export interface IFileUploadFormValues {
+    file: any
+    
+}
