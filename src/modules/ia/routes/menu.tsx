@@ -48,7 +48,7 @@ export const portfolioListRoutes =
   {
     id: "p6",
     element: <TransactionEntryView  />,
-    path: "/portfolio/ia/add_transaction",
+    path: "/portfolio/ia/add_transaction/:id",
   },
   
 ]

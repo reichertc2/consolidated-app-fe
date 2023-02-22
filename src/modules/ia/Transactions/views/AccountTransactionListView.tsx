@@ -1,5 +1,5 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { Link, useParams } from "react-router-dom";
+import { generatePath, Link, useParams } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 import Error from "../../../default/common/components/Error"
 import { ITransaction } from "../models/ITransactions";
@@ -16,8 +16,8 @@ export const AccountTransactionListView: React.FC<IAccountTransactionListViewPro
 
     const { id } = useParams()
 
-    const { transactions, error } = useTransactionList(Number(id) ?? 0)
-    console.log(transactions)
+    const { transactions, error } = useTransactionList(Number(id))
+    console.log("AccountTransactionListView", transactions)
 
 
     if (error) {
@@ -43,9 +43,13 @@ export const AccountTransactionListView: React.FC<IAccountTransactionListViewPro
                         <TableCell align="center">Price</TableCell>
                         <TableCell align="center">Description</TableCell>
                         <TableCell align="right">
-                            <Link to="/portfolio/ia/add_transaction">
-                                <AddIcon />
-                            </Link>
+                            {id ?
+                                <Link to={generatePath("/portfolio/ia/add_transaction/:id", { id })}>
+                                    <AddIcon />
+                                </Link>
+                                : ""
+                            }
+
                         </TableCell>
                     </TableRow>
                 </TableHead>

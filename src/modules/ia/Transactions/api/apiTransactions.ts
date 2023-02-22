@@ -10,18 +10,17 @@ export interface ITransactionSubmission {
   user: any
   data: {
     account: number,
-    transaction:ITransactionEntryFormValues
+    transactions:ITransactionEntryFormValues[]
   }
   
 }
 
 const get = async ( user:any, acct:any, cancelToken: any) => {
     let error 
-    let accounts
+    let transactions
       const response: any = await apiClientTokenAuth(user, cancelToken).get(endpoint, {"acct":acct, "user": user});
     if (response.ok){
-        accounts = response.data.data
-        console.log("apiTransaction: get", accounts)
+        transactions = response.data.data
 
     } else{
         error="An Unexpected Error has Occured. Please try again later."
@@ -29,7 +28,7 @@ const get = async ( user:any, acct:any, cancelToken: any) => {
 
   return {
     error,
-    accounts
+    transactions
   };
 };
 

@@ -8,15 +8,18 @@ interface ITransctionEntryView { }
 
 export const TransactionView: React.FC<ITransctionEntryView> = () => {
 
-    const { acctId } = useParams()
-
+    const {  id } = useParams()
+    console.log("TransactionView ",id)
     return (
 
         <section
             className="bg-zinc-200 w-9/12 rounded m-auto my-40"
-        >
+        >{id ?
             <TransactionEntryForm
-                acctId={acctId ?? "0"} />
+                acctId={id} />
+            : ""
+            }
+
 
         </section>
 

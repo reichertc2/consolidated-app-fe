@@ -17,7 +17,7 @@ export default function useTransaction(accountId: number, transaction: ITransact
         "user": user.token,
         "data": {
             "account": accountId,
-            "transaction": transaction
+            "transactions": [transaction]
         }
     }
 
@@ -27,8 +27,11 @@ export default function useTransaction(accountId: number, transaction: ITransact
 
 
         const createTransaction = async () => {
+            console.log('data: ',data)
             response = await apiTransactions.post(user, data, source.token);
             console.log("useTransaction", response)
+            // data.data.transaction.push(transaction)
+            // data.data.transaction.push(transaction)
             if (response) {
                 let id = accountId.toString()
                 setAlert({ msg: `Transaction for: ${transaction.symbol} Created`, cat: "success" });
@@ -44,6 +47,6 @@ export default function useTransaction(accountId: number, transaction: ITransact
         return () => {
             source.cancel();
         };
-    }, [transaction]);
+    }, [transaction.symbol]);
 
 }

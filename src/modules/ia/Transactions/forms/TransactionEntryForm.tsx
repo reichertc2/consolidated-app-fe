@@ -41,11 +41,10 @@ export default function TransactionEntryForm(props : ITransactionEntryForm) {
     const [newTransaction, setNewTransaction] = useState<ITransactionEntryFormValues>(initialValues);
 
 
-    useTransaction(Number(props.acctId) ?? 0, newTransaction);
+    useTransaction(Number(props.acctId), newTransaction);
 
     const handleSubmit = (values: ITransactionEntryFormValues) => {
 
-        console.log("handleSubmit", values)
         setNewTransaction(values)
     };
 

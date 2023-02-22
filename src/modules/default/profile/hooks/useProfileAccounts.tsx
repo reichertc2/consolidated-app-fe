@@ -14,12 +14,12 @@ export default function useProfileAccounts() {
 
 
         const getProfileAccounts = async () => {
-            response = await apiAccounts.get( user.token,source.token);
+            response = await apiAccounts.get(user.token, source.token);
             setAcct(response)
         };
-        
+
         getProfileAccounts();
-        
+
         return () => {
             source.cancel();
         };
