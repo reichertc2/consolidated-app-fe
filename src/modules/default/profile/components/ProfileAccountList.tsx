@@ -6,14 +6,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import useProfileAccounts from "../hooks/useProfileAccounts";
 import ProfileAccount from "./ProfileAccount";
 import Error from "../../common/components/Error"
 import AddIcon from '@mui/icons-material/Add';
-import { Link } from 'react-router-dom';
 import TableRowMessge from '../../common/components/TableRowMessage';
-import AddItemLink from '../../common/components/AddItemLink';
+import AccountTableEntryForm from '../../../ia/default/forms/AccountTableEntryForm';
+import { useState } from 'react';
+import RemoveIcon from '@mui/icons-material/Remove';
+
 
 interface IProfileAccountList { }
 
@@ -29,6 +31,8 @@ export interface IAccount {
 export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
 
     const { accounts, error } = useProfileAccounts()
+
+    const [showTableForm, setShowTableForm] = useState<boolean>(false)
 
     if (error) {
         return (
@@ -48,15 +52,28 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                         <TableCell align="center">Classification</TableCell>
                         <TableCell align="center">Balance</TableCell>
                         <TableCell align="right">
-                            
-                            <AddItemLink
-                                id={""}
-                                path={"/portfolio/add_account"}
-                            />
+
+                            <Button
+                                onClick={() => {
+                                    console.log("showTableForm", showTableForm)
+                                    setShowTableForm(!showTableForm)
+                                }}>
+                                {showTableForm ?
+                                    <RemoveIcon /> :
+                                    <AddIcon />
+                                }
+                            </Button>
 
                         </TableCell>
                     </TableRow>
                 </TableHead>
+
+                {showTableForm ?
+
+                    <AccountTableEntryForm
+                        setShowTableForm={setShowTableForm} />
+                    : ""
+                }
                 <TableBody>
                     {accounts && accounts.length !== 0 ?
                         accounts.map((row: IAccount) =>
@@ -72,6 +89,7 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                             columns={5}
                         />
                     }
+                    
                 </TableBody>
             </Table>
         </TableContainer>
