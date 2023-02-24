@@ -2,8 +2,7 @@ import apiClientTokenAuth from "../../../default/auth/api/clientTokenAuth";
 import { ITransactionEntryFormValues } from "../models/ITransactions";
 
 
-const endpoint = "api/ia/account/transactions";
-const ia_endpoint = "api/ia/account/transaction"
+const ia_endpoint = "api/ia/account/transactions"
 
 
 export interface ITransactionSubmission {
@@ -18,7 +17,7 @@ export interface ITransactionSubmission {
 const get = async ( user:any, acct:any, cancelToken: any) => {
     let error 
     let transactions
-      const response: any = await apiClientTokenAuth(user, cancelToken).get(endpoint, {"acct":acct, "user": user});
+      const response: any = await apiClientTokenAuth(user, cancelToken).get(ia_endpoint, {"acct":acct, "user": user});
     if (response.ok){
         transactions = response.data.data
 

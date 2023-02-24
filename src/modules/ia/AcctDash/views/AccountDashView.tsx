@@ -38,19 +38,19 @@ export const AccountDashView: React.FC<IAcctDash> = () => {
     <article
       className='flex flex-row'
     >
-      {acctInfo ? (<>
+      {acctInfo.account1[0] ? (<>
         <div>
-          <AcctGrid acctInfo={acctInfo?.general} />
-          <SectorBreakout acctInfo={acctInfo?.sectorBreakout} />
-          <RetireProj acctInfo={acctInfo?.retireProjectedValue} />
+          <AcctGrid acctInfo={acctInfo?.account1[0].general} />
+          <SectorBreakout acctInfo={acctInfo?.account1[0].sectorBreakout} />
+          <RetireProj acctInfo={acctInfo?.account1[0].retireProjectedValue} />
         </div>
         <div>
-          <TenYearGrowth acctInfo={acctInfo?.tenYearGrowth} />
-          <ProjVsIdle acctInfo={acctInfo?.projectedVsIdle} />
-          <RetireInc acctInfo={acctInfo?.retireProjectedIncome} />
+          <TenYearGrowth acctInfo={acctInfo?.account1[0].tenYearGrowth} />
+          <ProjVsIdle acctInfo={acctInfo?.account1[0].projectedVsIdle} />
+          <RetireInc acctInfo={acctInfo?.account1[0].retireProjectedIncome} />
         </div>
         <div>
-          <TopFivePos acctInfo={acctInfo?.topFivePositions} />
+          <TopFivePos acctInfo={acctInfo?.account1[0].topFivePositions} />
           <PortfolioSpecs acctInfo={acctInfo?.portfolioSpecs} />
         </div>
       </>

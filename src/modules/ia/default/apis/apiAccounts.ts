@@ -2,7 +2,7 @@ import apiClientTokenAuth from "../../../default/auth/api/clientTokenAuth";
 import { IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
 
 
-const endpoint = "api/profile/accounts";
+
 const ia_endpoint = "api/ia/profile/accounts"
 
 
@@ -14,7 +14,7 @@ export interface IAccountSubmission {
 const get = async ( user:any, cancelToken: any) => {
     let error 
     let accounts
-      const response: any = await apiClientTokenAuth(user, cancelToken).get(endpoint, {"tok":user});
+      const response: any = await apiClientTokenAuth(user, cancelToken).get(ia_endpoint, {"tok":user});
     if (response.ok){
         accounts = response.data.data
 
