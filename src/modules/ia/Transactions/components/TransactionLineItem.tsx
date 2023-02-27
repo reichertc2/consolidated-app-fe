@@ -1,7 +1,8 @@
 import { ITransaction } from '../models/ITransactions';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { TableCell, TableRow } from "@mui/material";
+import { Button, TableCell, TableRow } from "@mui/material";
 import { useState } from "react";
+import useDeleteTransaction from '../hooks/useDeleteTransaction';
 
 interface ITransactionProps {
     transaction: ITransaction
@@ -10,6 +11,13 @@ interface ITransactionProps {
 export const TransactionLineItem: React.FC<ITransactionProps> = ({ transaction }) => {
 
     const [id, setId] = useState(transaction.id.toString());
+    const [deleteTranaction, setDeleteTransaction] = useState<ITransaction>()
+
+    useDeleteTransaction(deleteTranaction)
+
+    function handleDelete() {
+        setDeleteTransaction(transaction)
+    }
 
     return (
 
@@ -30,7 +38,10 @@ export const TransactionLineItem: React.FC<ITransactionProps> = ({ transaction }
             <TableCell align="right">{transaction.description}</TableCell>
             <TableCell align="right">
 
-                <DeleteIcon />
+                <Button onClick={() => handleDelete()}>
+                    <DeleteIcon />
+                </Button>
+
             </TableCell>
         </TableRow>
     );

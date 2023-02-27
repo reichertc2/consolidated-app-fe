@@ -36,7 +36,15 @@ const post = async (user: any, data:ITransactionSubmission, cancelToken: any) =>
   return response.ok;
 };
 
+const del = async (user: any, cancelToken: any,id?:number)=>{
+  const response = await apiClientTokenAuth(user.token,cancelToken).delete(`${ia_endpoint}/${id}`)
+  console.log("delete: ",response.ok );
+
+  return response.ok
+}
+
 export default {
   get,
-  post
+  post,
+  del
 };
