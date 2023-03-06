@@ -2,7 +2,6 @@ import apiClientTokenAuth from "../../../default/auth/api/clientTokenAuth";
 import { IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
 
 
-
 const ia_endpoint = "api/ia/profile/accounts"
 
 
@@ -35,13 +34,17 @@ const post = async (user: any, data:IAccountSubmission, cancelToken: any) => {
 
 const del = async (user: any, cancelToken: any,id?:number)=>{
   const response = await apiClientTokenAuth(user.token,cancelToken).delete(`${ia_endpoint}/${id}`)
-  console.log("delete: ",response.ok );
+  return response.ok
+}
 
+const put = async (user: any, cancelToken: any,id?:number)=>{
+  const response = await apiClientTokenAuth(user.token,cancelToken).put(`${ia_endpoint}/${id}`)
   return response.ok
 }
 
 export default {
   get,
   post, 
-  del
+  del, 
+  put
 };

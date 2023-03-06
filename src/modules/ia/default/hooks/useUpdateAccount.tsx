@@ -6,7 +6,7 @@ import { IAccount } from "../../../default/profile/components/ProfileAccountList
 import apiAccounts from "../../default/apis/apiAccounts";
 
 
-export default function useDeleteAccount(account?: IAccount) {
+export default function useUpdateAccount(account?: IAccount) {
     const { user, setAlert } = useContext(AppContext);
     const navigate = useNavigate();
 
@@ -15,21 +15,21 @@ export default function useDeleteAccount(account?: IAccount) {
         const source = CancelToken.source();
 
 
-        const deleteAccount = async () => {
-            response = await apiAccounts.del(user, source.token, account?.id);
-            console.log("useTransaction", response)
+        const updateAccount = async () => {
+            response = await apiAccounts.put(user, source.token, account?.id);
+            console.log("useAccountUpdate", response)
 
             if (response) {
 
-                setAlert({ msg: `Account for: ${account?.name} deleted`, cat: "success" });
+                setAlert({ msg: `Account for: ${account?.name} updated`, cat: "success" });
 
             } else if (response !== undefined && response === false) {
-                setAlert({ msg: `Account Deletion Failed`, cat: "warning" });
+                setAlert({ msg: `Account Update Failed`, cat: "warning" });
                 navigate("/user/profile");
             }
         };
         if (account?.name) {
-            deleteAccount();
+            updateAccount();
         }
         return () => {
             source.cancel();

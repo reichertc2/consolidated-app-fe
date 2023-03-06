@@ -71,7 +71,8 @@ export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
                 {showTableForm ?
 
                     <AccountTableEntryForm
-                        setShowTableForm={setShowTableForm} />
+                        // setShowTableForm={setShowTableForm} 
+                        />
                     : ""
                 }
                 <TableBody>

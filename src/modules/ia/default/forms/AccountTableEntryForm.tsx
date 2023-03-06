@@ -22,7 +22,7 @@ const initialValues = {
 };
 
 interface IAccountTableEntryForm {
-    setShowTableForm: (showTableForm:boolean) => void
+    // setShowTableForm: (showTableForm:boolean) => void
 }
 
 export default function AccountTableEntryForm(props: IAccountTableEntryForm ) {
