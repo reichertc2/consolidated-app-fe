@@ -1,8 +1,10 @@
+import { basicViewStyle } from "../../../default/common/stylesFunctions/common";
+
 export default function TransactionsView() {
 
 
     return (
-        <article className='gridWrapper'>
+        <article className={basicViewStyle()}>
             Transactions
         </article>
     );

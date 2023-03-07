@@ -1,4 +1,5 @@
 
+import { basicViewStyle } from "../../../default/common/stylesFunctions/common";
 import AccountEntryForm from "../forms/AccountEntryForm";
 
 
@@ -9,7 +10,7 @@ export const AccountEntryView: React.FC<IAccountEntryView> = () => {
 
     return (
         <section
-            className="bg-zinc-200 w-9/12 rounded m-auto my-40"
+            className={basicViewStyle()}
         >
             <AccountEntryForm />
 

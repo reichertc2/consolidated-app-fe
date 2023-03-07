@@ -9,6 +9,7 @@ import { TenYearGrowth } from '../components/TenYearGrowth';
 import { TopFivePos } from '../components/TopFivePos';
 import useAccountDash from '../hooks/useAccountDash';
 import Error from "../../../default/common/components/Error"
+import { basicViewStyle } from '../../../default/common/stylesFunctions/common';
 
 interface IAcctDash { }
 
@@ -36,7 +37,7 @@ export const AccountDashView: React.FC<IAcctDash> = () => {
 
   return (
     <article
-      className='flex flex-row'
+      className={`${basicViewStyle()} flex flex-row`}
     >
       {acctInfo.account1[0] ? (<>
         <div>

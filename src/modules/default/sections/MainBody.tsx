@@ -12,7 +12,7 @@ export const MainBody: React.FC<IMainBody> = () => {
     return (
 
         <main
-            className="w-10/12 m-auto m-0 bg-zinc-300"
+            className="w-full m-auto m-0 bg-zinc-300"
         >
 
             <Routes>

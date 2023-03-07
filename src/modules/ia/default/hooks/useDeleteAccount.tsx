@@ -2,7 +2,7 @@ import { CancelToken } from "apisauce";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../../context/AppContext";
-import { IAccount } from "../../../default/profile/components/ProfileAccountList";
+import { IAccount } from "../../../default/profile/models/IAccount";
 import apiAccounts from "../../default/apis/apiAccounts";
 
 

@@ -1,8 +1,10 @@
+import { basicViewStyle } from "../../../default/common/stylesFunctions/common";
+
 export default function ReallocationToolView() {
 
 
     return (
-        <article className='gridWrapper'>
+        <article className={basicViewStyle()}>
             Rallocation Tool
         </article>
     );

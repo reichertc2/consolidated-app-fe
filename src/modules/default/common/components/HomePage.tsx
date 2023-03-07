@@ -8,8 +8,10 @@ export const HomePage: React.FC<IHomePage> = () => {
     return (
         <table
             className="w-full m-auto h-1/2"
+            
         >
-            <tbody>
+            <tbody 
+            >
                 <tr>
                     <td
                         className="m-auto w-6/12 text-2xl p-3 align-top"

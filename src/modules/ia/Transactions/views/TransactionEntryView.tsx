@@ -1,5 +1,6 @@
 
 import { useParams } from "react-router-dom";
+import { basicViewStyle } from "../../../default/common/stylesFunctions/common";
 import TransactionEntryForm from "../forms/TransactionEntryForm";
 
 
@@ -13,7 +14,7 @@ export const TransactionView: React.FC<ITransctionEntryView> = () => {
     return (
 
         <section
-            className="bg-zinc-200 w-9/12 rounded m-auto my-40"
+           
         >{id ?
             <TransactionEntryForm
                 acctId={id} />

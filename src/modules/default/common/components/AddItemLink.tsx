@@ -13,7 +13,9 @@ export const AddItemLink: React.FC<IAddItemLink> = ({ id, path, customIcon }) =>
 
     return (
 
-        <Link to={generatePath(path, { id })}>
+        <Link
+            to={generatePath(path, { id })}
+            >
             {
                 customIcon ? customIcon : <AddIcon />
             }

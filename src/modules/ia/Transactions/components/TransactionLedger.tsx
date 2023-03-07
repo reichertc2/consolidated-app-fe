@@ -6,6 +6,7 @@ import TransactionTableEntryForm from "../forms/TransactionTableEntryForm";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from "react";
+import TableHeaderCell from "../../../default/common/components/TableHeaderCell";
 
 
 interface ITransactionLedger {
@@ -18,6 +19,7 @@ export const TransactionLedger: React.FC<ITransactionLedger> = ({ id, error, tra
 
     const [showTableForm, setShowTableForm] = useState<boolean>(false)
 
+    const headerTitles = ["Date", "Transaction Type", "Security Type", "Symbol", "Qty", "Amount", "Price", "Description"]
 
     return (
 
@@ -25,17 +27,19 @@ export const TransactionLedger: React.FC<ITransactionLedger> = ({ id, error, tra
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Date</TableCell>
-                        <TableCell align="center">Transaction Type</TableCell>
-                        <TableCell align="center">Security Type</TableCell>
-                        <TableCell align="center">Symbol</TableCell>
-                        <TableCell align="center">Qty</TableCell>
-                        <TableCell align="center">Amount</TableCell>
-                        <TableCell align="center">Price</TableCell>
-                        <TableCell align="center">Description</TableCell>
+
+                        {
+                            headerTitles.map((title, idx) =>
+                                <TableHeaderCell
+                                    key={`${title}-${idx}`}
+                                    title={title} />
+                            )
+                        }
+
                         <TableCell align="right">
 
                             <Button
+                                sx={{ color: "black" }}
                                 onClick={() => {
                                     console.log("showTableForm", showTableForm)
                                     setShowTableForm(!showTableForm)
@@ -58,7 +62,7 @@ export const TransactionLedger: React.FC<ITransactionLedger> = ({ id, error, tra
                     />
                     : ""
                 }
-                
+
                 <TableBody>
                     {transactions && transactions.length !== 0 ?
                         transactions.map((row: ITransaction) =>

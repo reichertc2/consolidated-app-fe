@@ -1,5 +1,4 @@
-
-import React from "react";
+import { basicViewStyle } from "../../common/stylesFunctions/common";
 import RegisterEditForm from "../forms/RegisterEditForm";
 
 export default function RegisterEdit() {
@@ -8,7 +7,7 @@ export default function RegisterEdit() {
         <div>
 
             <section
-                className="w-6/12 m-auto mt-14 px-5 py-3"
+                className={basicViewStyle()}
             >
                 <RegisterEditForm />
             </section>
