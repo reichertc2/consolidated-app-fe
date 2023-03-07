@@ -4,7 +4,8 @@ import { useFormik } from "formik";
 import useCreateAccount from "../hooks/useCreateAccount";
 import { IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
 import { Button, TableCell, TableRow, TextField } from "@mui/material";
-
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 
 
 // Defining our yup validation
@@ -22,10 +23,10 @@ const initialValues = {
 };
 
 interface IAccountTableEntryForm {
-    // setShowTableForm: (showTableForm:boolean) => void
+    setShowTableForm: (showTableForm: boolean) => void
 }
 
-export default function AccountTableEntryForm(props: IAccountTableEntryForm ) {
+export default function AccountTableEntryForm(props: IAccountTableEntryForm) {
 
     const [newAccount, setNewAccount] = useState<IAccountEntryFormValues>(initialValues);
 
@@ -59,8 +60,7 @@ export default function AccountTableEntryForm(props: IAccountTableEntryForm ) {
                     <TextField
                         id="name"
                         name="name"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "20%" }}
                         label="Name"
                         placeholder="Name"
                         value={formik.values.name}
@@ -72,8 +72,7 @@ export default function AccountTableEntryForm(props: IAccountTableEntryForm ) {
                     <TextField
                         id="institution"
                         name="institution"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "20%" }}
                         label="Institution"
                         placeholder="Institution"
                         value={formik.values.institution}
@@ -85,8 +84,7 @@ export default function AccountTableEntryForm(props: IAccountTableEntryForm ) {
                     <TextField
                         id="classification"
                         name="classification"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "20%" }}
                         label="Classification"
                         placeholder="Classification"
                         value={formik.values.classification}
@@ -98,17 +96,31 @@ export default function AccountTableEntryForm(props: IAccountTableEntryForm ) {
 
 
                     <Button
-                        // onClick={() => props.setShowTableForm(false)}
-                        type="submit"
+                        onClick={() => props.setShowTableForm(false)}
                         sx={{
-                            width: "80%",
+                            marginLeft: "20rem",
+                            width: "4%",
                             mb: 2,
-                            textTransform: "capitalize",
-                            fontSize: "18px",
-                        }}>
-                        Enter Account
+                            color: "black",
+                            verticalAlign: "bottom"
+
+                        }}
+                    >
+                        <ClearIcon />
                     </Button>
 
+                    <Button
+                        type="submit"
+                        sx={{
+                            width: "4%",
+                            mb: 2,
+                            color: "black",
+                            verticalAlign: "bottom"
+
+                        }}
+                    >
+                        <CheckIcon />
+                    </Button>
                 </form>
             </TableCell>
         </TableRow>

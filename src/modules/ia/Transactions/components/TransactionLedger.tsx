@@ -1,12 +1,12 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { ITransaction } from "../models/ITransactions";
 import TransactionLineItem from "../components/TransactionLineItem";
-import TableRowMessge from "../../../default/common/components/TableRowMessage";
+import TableRowMessge from "../../../default/common/components/TableItems/TableRowMessage";
 import TransactionTableEntryForm from "../forms/TransactionTableEntryForm";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from "react";
-import TableHeaderCell from "../../../default/common/components/TableHeaderCell";
+import TableHeaderCell from "../../../default/common/components/TableItems/TableHeaderCell";
 
 
 interface ITransactionLedger {

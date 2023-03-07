@@ -6,7 +6,7 @@ import { useState } from "react";
 import AddItemLink from "../../common/components/AddItemLink";
 import useDeleteAccount from "../../../ia/default/hooks/useDeleteAccount";
 import useUpdateAccount from "../../../ia/default/hooks/useUpdateAccount";
-import TableBodyCell from "../../common/components/TableBodyCell";
+import TableBodyCell from "../../common/components/TableItems/TableBodyCell";
 import { IAccount } from '../models/IAccount';
 
 interface IProfileAccountProps {

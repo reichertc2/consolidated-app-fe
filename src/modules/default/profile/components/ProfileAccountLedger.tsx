@@ -11,11 +11,11 @@ import useProfileAccounts from "../hooks/useProfileAccounts";
 import ProfileAccount from "./ProfileAccount";
 import Error from "../../common/components/Error"
 import AddIcon from '@mui/icons-material/Add';
-import TableRowMessge from '../../common/components/TableRowMessage';
+import TableRowMessge from '../../common/components/TableItems/TableRowMessage';
 import AccountTableEntryForm from '../../../ia/default/forms/AccountTableEntryForm';
 import { useState } from 'react';
 import RemoveIcon from '@mui/icons-material/Remove';
-import TableHeaderCell from '../../common/components/TableHeaderCell';
+import TableHeaderCell from '../../common/components/TableItems/TableHeaderCell';
 import { IAccount } from '../models/IAccount';
 
 
@@ -82,7 +82,7 @@ export const ProfileAccountLedger: React.FC<IProfileAccountLedger> = () => {
                 {showTableForm ?
 
                     <AccountTableEntryForm
-                    // setShowTableForm={setShowTableForm} 
+                    setShowTableForm={setShowTableForm} 
                     />
                     : ""
                 }

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import Grid from "@mui/material/Grid";
 import { Button, TableCell, TableRow, TextField } from "@mui/material";
 import { ITransactionEntryFormValues } from "../models/ITransactions";
 import useTransaction from "../hooks/useTransaction";
-
-
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 
 // Defining our yup validation
 const FormSchema = Yup.object({
@@ -43,7 +42,6 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
 
     const [newTransaction, setNewTransaction] = useState<ITransactionEntryFormValues>(initialValues);
 
-
     useTransaction(Number(props.acctId), newTransaction);
 
     const handleSubmit = (values: ITransactionEntryFormValues) => {
@@ -69,8 +67,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="date"
                         name="date"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "20%" }}
                         label="Date"
                         placeholder="Date"
                         value={formik.values.date}
@@ -81,8 +78,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="transaction_type"
                         name="transaction_type"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "15%" }}
                         label="Transaction Type"
                         placeholder="Transaction Type"
                         value={formik.values.transaction_type}
@@ -93,8 +89,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="security_type"
                         name="security_type"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "12%" }}
                         label="Security Type"
                         placeholder="Security Type"
                         value={formik.values.security_type}
@@ -106,8 +101,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="symbol"
                         name="symbol"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "9%" }}
                         label="Symbol"
                         placeholder="Symbol"
                         value={formik.values.symbol}
@@ -118,8 +112,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="quantity"
                         name="quantity"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "5%" }}
                         label="Quantity"
                         placeholder="Quantity"
                         value={formik.values.quantity}
@@ -130,8 +123,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="amount"
                         name="amount"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "9%" }}
                         label="Amount"
                         placeholder="Amount"
                         value={formik.values.amount}
@@ -142,8 +134,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="price"
                         name="price"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "9%" }}
                         label="Price"
                         placeholder="Price"
                         value={formik.values.price}
@@ -154,8 +145,7 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                     <TextField
                         id="description"
                         name="description"
-                        fullWidth
-                        sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
+                        sx={{ mb: 1, mt: 1, backgroundColor: 'white', display: "inline-block", width: "9%" }}
                         label="description"
                         placeholder="description"
                         value={formik.values.description}
@@ -164,15 +154,32 @@ export default function TransactionTableEntryForm(props: ITransactionEntryForm) 
                         helperText={formik.touched.description && formik.errors.description}
                     />
 
+
+                    <Button
+                        onClick={() => props.setShowTableForm(false)}
+                        sx={{
+                            marginLeft:"3rem",
+                            width: "4%",
+                            mb: 2,
+                            color: "black",
+                            verticalAlign: "bottom"
+
+                        }}
+                    >
+                        <ClearIcon />
+                    </Button>
+
                     <Button
                         type="submit"
                         sx={{
-                            width: "80%",
+                            width: "4%",
                             mb: 2,
-                            textTransform: "capitalize",
-                            fontSize: "18px",
-                        }}>
-                        Enter Transaction
+                            color: "black",
+                            verticalAlign: "bottom"
+
+                        }}
+                    >
+                        <CheckIcon />
                     </Button>
                 </form>
 

@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, TableCell, TableRow } from "@mui/material";
 import { useState } from "react";
 import useDeleteTransaction from '../hooks/useDeleteTransaction';
-import TableBodyCell from '../../../default/common/components/TableBodyCell';
+import TableBodyCell from '../../../default/common/components/TableItems/TableBodyCell';
 
 interface ITransactionProps {
     transaction: ITransaction
