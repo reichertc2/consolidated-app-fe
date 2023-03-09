@@ -1,20 +1,23 @@
 import * as React from 'react';
+import TableLedger from '../../common/components/TableLedger';
 import { basicInfoCard } from '../../common/stylesFunctions/common';
-import ProfileAccountLedger from './ProfileAccountLedger';
 
 
 interface IProfileAccountList { }
 
 
 export const ProfileAccountList: React.FC<IProfileAccountList> = () => {
-
+    const headerTitles = ["Account Name", "Institution", "Classification", "Balance"]
     return (
 
         <section
             className={basicInfoCard()}
         >
             <h3>Financial Accounts Registered</h3>
-            <ProfileAccountLedger />
+            <TableLedger
+                headerTitles={headerTitles}
+                selectedBody={"account"}
+            />
         </section>
     );
 }

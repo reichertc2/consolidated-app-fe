@@ -5,7 +5,7 @@ import ReallocationToolView from "../ReallocationTool/views/ReallocationToolView
 import TargetPortfolioView from "../TargetPortfolio/views/TargetPortfolioView"
 import AccountTransactionListView from "../Transactions/views/AccountTransactionListView"
 import TransactionEntryView from "../Transactions/views/TransactionEntryView"
-import TransactionsView from "../Transactions/views/TransactionsView"
+import IAManagerView from "../IAManager/views/IAManagerView"
 
 
 export const portfolioListRoutes = 
@@ -32,8 +32,8 @@ export const portfolioListRoutes =
   },
   {
     id: "p5",
-    element: <TransactionsView />,
-    path: "/portfolio/transactions",
+    element: <IAManagerView />,
+    path: "/portfolio/ia_manager",
   },
   {
     id: "u5",

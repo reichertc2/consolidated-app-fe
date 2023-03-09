@@ -17,6 +17,7 @@ export const TransactionLineItem: React.FC<ITransactionProps> = ({ transaction }
     useDeleteTransaction(deleteTranaction)
 
     function handleDelete() {
+        console.log(transaction)
         setDeleteTransaction(transaction)
     }
 

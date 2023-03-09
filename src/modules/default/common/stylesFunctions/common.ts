@@ -7,5 +7,9 @@ export const basicViewStyle = () =>{
 
 
 export const basicInfoCard = () => {
-    return 'w-full'
+    return 'w-11/12 rounded'
+}
+
+export const basicSectionStyle = () =>{
+    return 'w-11/12 rounded'
 }

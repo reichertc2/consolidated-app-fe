@@ -35,8 +35,8 @@ export const portfolioMenuItems =
         },
         {
           id: "a5",
-          pathName: "Transactions",
-          path: "/portfolio/transactions",
+          pathName: "IA Manager",
+          path: "/portfolio/ia_manager",
         },
     ]
   

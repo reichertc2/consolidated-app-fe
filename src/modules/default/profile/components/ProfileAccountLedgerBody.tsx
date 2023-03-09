@@ -19,65 +19,28 @@ import TableHeaderCell from '../../common/components/TableItems/TableHeaderCell'
 import { IAccount } from '../models/IAccount';
 
 
-interface IProfileAccountLedger { }
+interface IProfileAccountLedgerBody { 
+    id?: string,
+    showTableForm: boolean,
+    setShowTableForm: (show: boolean) => void,
+    
+}
 
 
 
 
-export const ProfileAccountLedger: React.FC<IProfileAccountLedger> = () => {
+export const ProfileAccountLedgerBody: React.FC<IProfileAccountLedgerBody> = ({ id, showTableForm, setShowTableForm }) => {
 
     const { accounts, error } = useProfileAccounts()
 
-    const [showTableForm, setShowTableForm] = useState<boolean>(false)
-
-    const headerTitles = ["Account Name", "Institution", "Classification", "Balance"]
 
 
-    if (error) {
-        return (
-            <Box sx={{ display: "flex" }}>
-                <Error>{error}</Error>
-            </Box>
-        );
-    }
+
+
+
 
     return (
-        <TableContainer
-            component={Paper}
-            sx={{
-                width: "75%",
-                marginTop:"1%",
-                
-            }}
-        >
-            <Table size="small" aria-label="a dense table">
-                <TableHead>
-                    <TableRow>
-
-                        {
-                            headerTitles.map((title, idx) =>
-                                <TableHeaderCell
-                                    key={`${title}-${idx}`}
-                                    title={title}
-                                />)
-                        }
-
-                        <TableCell align="right">
-
-                            <Button
-                                sx={{ color: "black" }}
-                                onClick={() => {
-                                    setShowTableForm(!showTableForm)
-                                }}>
-                                {showTableForm ?
-                                    <RemoveIcon /> :
-                                    <AddIcon />
-                                }
-                            </Button>
-
-                        </TableCell>
-                    </TableRow>
-                </TableHead>
+<>
 
                 {showTableForm ?
 
@@ -103,8 +66,7 @@ export const ProfileAccountLedger: React.FC<IProfileAccountLedger> = () => {
                     }
 
                 </TableBody>
-            </Table>
-        </TableContainer>
+                </>
     );
 }
-export default ProfileAccountLedger;
+export default ProfileAccountLedgerBody;

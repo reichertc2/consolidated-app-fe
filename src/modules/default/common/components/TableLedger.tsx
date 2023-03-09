@@ -1,25 +1,47 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { ITransaction } from "../models/ITransactions";
-import TransactionLineItem from "../components/TransactionLineItem";
 import TableRowMessge from "../../../default/common/components/TableItems/TableRowMessage";
-import TransactionTableEntryForm from "../forms/TransactionTableEntryForm";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from "react";
 import TableHeaderCell from "../../../default/common/components/TableItems/TableHeaderCell";
+import { ITransaction } from "../../../ia/Transactions/models/ITransactions";
+import { TransactionLedgerBody } from "../../../ia/Transactions/components/TransactionLedgerBody";
+import ProfileAccountLedgerBody from "../../profile/components/ProfileAccountLedgerBody";
 
 
-interface ITransactionLedger {
+interface ITableLedger {
     id?: string,
-    error: string,
-    transactions: ITransaction[]
+    error?: string,
+    transactions?: ITransaction[],
+    headerTitles: string[],
+    selectedBody: string
 }
 
-export const TransactionLedger: React.FC<ITransactionLedger> = ({ id, error, transactions }) => {
+export const TableLedger: React.FC<ITableLedger> = ({ id, error, transactions, headerTitles, selectedBody }) => {
 
     const [showTableForm, setShowTableForm] = useState<boolean>(false)
 
-    const headerTitles = ["Date", "Transaction Type", "Security Type", "Symbol", "Qty", "Amount", "Price", "Description"]
+    const renderTableBody = (selectedBody: string) => {
+        if (selectedBody === "transaction") {
+            return <TransactionLedgerBody
+                id={id}
+                error={error ?? ""}
+                setShowTableForm={setShowTableForm}
+                showTableForm={showTableForm}
+                transactions={transactions}
+
+            />
+        } else if ("account") {
+            return <ProfileAccountLedgerBody
+                id={id}
+                setShowTableForm={setShowTableForm}
+                showTableForm={showTableForm}
+            />
+        } else {
+            return
+        }
+
+    }
 
     return (
 
@@ -53,31 +75,9 @@ export const TransactionLedger: React.FC<ITransactionLedger> = ({ id, error, tra
                         </TableCell>
                     </TableRow>
                 </TableHead>
-
-                {showTableForm ?
-
-                    <TransactionTableEntryForm
-                        setShowTableForm={setShowTableForm}
-                        acctId={id ?? ""}
-                    />
-                    : ""
-                }
-
-                <TableBody>
-                    {transactions && transactions.length !== 0 ?
-                        transactions.map((row: ITransaction) =>
-                        (
-                            <TransactionLineItem
-                                key={row.id}
-                                transaction={row}
-                            />
-                        )
-                        ) : <TableRowMessge
-                            message={error ?? "No records found"}
-                            columns={8}
-                        />
-                    }
-                </TableBody>
+                <>
+                    {renderTableBody(selectedBody)}
+                </>
             </Table>
         </TableContainer>
 
@@ -85,4 +85,4 @@ export const TransactionLedger: React.FC<ITransactionLedger> = ({ id, error, tra
 };
 
 
-export default TransactionLedger;
+export default TableLedger;
