@@ -7,7 +7,7 @@ interface ITableRowMessage {
   
 }
 
-export default function TableRowMessge({ message, columns}: ITableRowMessage) {
+export default function TableRowMessage({ message, columns}: ITableRowMessage) {
   
 
   return (

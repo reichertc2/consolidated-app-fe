@@ -2,14 +2,14 @@ import { generatePath, Link } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 
 
-interface IAddItemLink {
+interface IIconItemLink {
     id: string,
     path: string,
     customIcon?: any
 
 }
 
-export const AddItemLink: React.FC<IAddItemLink> = ({ id, path, customIcon }) => {
+export const IconItemLink: React.FC<IIconItemLink> = ({ id, path, customIcon }) => {
 
     return (
 
@@ -26,4 +26,4 @@ export const AddItemLink: React.FC<IAddItemLink> = ({ id, path, customIcon }) =>
 };
 
 
-export default AddItemLink;
+export default IconItemLink;

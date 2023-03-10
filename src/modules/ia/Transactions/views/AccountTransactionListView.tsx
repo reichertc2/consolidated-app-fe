@@ -1,12 +1,9 @@
-import { Button } from "@mui/material";
 import { useParams } from "react-router-dom";
-import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import useTransactionList from "../hooks/useTransactionList";
-import { useState } from "react";
-import FileUploadForm from "../forms/FileUploadForm";
 import { basicViewStyle } from "../../../default/common/stylesFunctions/common";
 import useProfileAccounts from "../../../default/profile/hooks/useProfileAccounts";
-import TableLedger from "../../../default/common/components/TableLedger";
+import TableLedger from "../../../default/common/components/TableItems/TableLedger";
+import AccountTransactionListHeader from "../components/AccountTransactionListHeader";
 
 
 interface IAccountTransactionListViewProps {
@@ -15,34 +12,25 @@ interface IAccountTransactionListViewProps {
 
 export const AccountTransactionListView: React.FC<IAccountTransactionListViewProps> = () => {
 
+    const headerTitles = ["Date", "Transaction Type", "Security Type", "Symbol", "Qty", "Amount", "Price", "Description"]
+
     const { id } = useParams<string>()
 
     const { transactions, error } = useTransactionList(Number(id))
     const { accounts } = useProfileAccounts()
-    // const account = accounts?.filter((account: IAccount) => account.id === parseInt(id ?? "0")) 
-
-    const headerTitles = ["Date", "Transaction Type", "Security Type", "Symbol", "Qty", "Amount", "Price", "Description"]
-    const [showUploadBox, setShowUploadBox] = useState<boolean>(false)
 
 
+    console.log(accounts)
     return (
         <section
             className={basicViewStyle()}
         >
-            <div>
+            <AccountTransactionListHeader
+                id={id ?? ""}
+                accounts={accounts}
 
-                <h3>Transactions </h3>
-                <Button
-                    onClick={() => setShowUploadBox(!showUploadBox)}>
-                    <DriveFolderUploadIcon />
-                </Button>
-            </div>
-            {
-                showUploadBox ?
-                    <FileUploadForm
-                    />
-                    : ""
-            }
+            />
+
             <TableLedger
                 id={id}
                 error={error}

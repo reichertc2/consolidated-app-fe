@@ -1,8 +1,6 @@
-import AccountTransactionListView from "../../ia/Transactions/views/AccountTransactionListView";
 import LoginView from "../auth/views/LoginView";
 import LogoutView from "../auth/views/LogoutView";
 import RegisterEditView from "../auth/views/RegisterEditView";
-import AccountEntryView from "../../ia/default/views/AccountEntryView";
 import ProfileView from "../profile/views/ProfileView";
 
 export const userListRoutes = 

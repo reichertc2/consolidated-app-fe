@@ -1,6 +1,7 @@
+import BasicHero from "../../common/components/BasicHero";
 import { basicViewStyle } from "../../common/stylesFunctions/common";
 import ProfileAccountList from "../components/ProfileAccountList";
-import ProfileHero from "../components/ProfileHero";
+
 
 
 interface IProfileView { }
@@ -12,7 +13,7 @@ export const ProfileView: React.FC<IProfileView> = () => {
         <section
             className={basicViewStyle()}
         >
-            <ProfileHero />
+            <BasicHero />
             <ProfileAccountList />
 
         </section>

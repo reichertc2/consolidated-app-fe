@@ -3,48 +3,49 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ListIcon from '@mui/icons-material/List';
 import { Button, TableCell, TableRow } from "@mui/material";
 import { useState } from "react";
-import IconItemLink from "../../common/components/IconItemLink";
-import useDeleteAccount from "../../../ia/default/hooks/useDeleteAccount";
-import useUpdateAccount from "../../../ia/default/hooks/useUpdateAccount";
-import TableBodyCell from "../../common/components/TableItems/TableBodyCell";
-import { IAccount } from '../models/IAccount';
+import IconItemLink from '../../../default/common/components/IconItemLink';
+import useDeleteStock from "../hooks/useDeleteStock"
+import useUpdateStock from "../hooks/useUpdateStock";
+import TableBodyCell from '../../../default/common/components/TableItems/TableBodyCell';
+import { IStock } from '../models/IStock';
 
-interface IProfileAccountProps {
-    account: IAccount,
+interface IStockLineItemProps {
+    stock: IStock,
 
 }
 
-export const ProfileAccount: React.FC<IProfileAccountProps> = ({ account }) => {
+export const StockLineItem: React.FC<IStockLineItemProps> = ({ stock }) => {
 
-    const [id] = useState(account.id.toString());
-    const [deleteAccount, setDeleteAccount] = useState<IAccount>()
-    const [updateAccount, setUpdateAccount] = useState<IAccount>()
+    const [id] = useState(stock.id ?? "");
+    const [deleteStock, setDeleteStock] = useState<IStock>()
+    const [updateStock, setUpdateStock] = useState<IStock>()
 
-    useDeleteAccount(deleteAccount)
-    useUpdateAccount(updateAccount)
+    useDeleteStock(deleteStock)
+    useUpdateStock(updateStock)
 
     function handleDelete() {
-        setDeleteAccount(account)
+        setDeleteStock(stock)
     }
 
     function handleUpdate() {
-        setUpdateAccount(account)
+        setUpdateStock(stock)
     }
 
     return (
         <>
             <TableRow
-                key={account.name}
+                key={stock.id ?? ""}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-                <TableBodyCell title={account.name} />
-                <TableBodyCell title={account.institution} />
-                <TableBodyCell title={account.classification} />
-                <TableBodyCell title={`$ ${account.balance}`} />
+                <TableBodyCell title={stock.symbol} />
+                <TableBodyCell title={stock.description ?? ""} />
+                <TableBodyCell title={stock.last ?? ""} />
+                <TableBodyCell title={`$ ${stock.quanatity ?? ""}`} />
+                <TableBodyCell title={`$ ${stock.sector ?? ""}`} />
                 <TableCell align="right">
 
                     <IconItemLink
-                        id={id}
+                        id={id.toString()??""}
                         path={`/portfolio/ia/account/list_transactions/:id`}
                         customIcon={<ListIcon />}
                     />
@@ -66,4 +67,4 @@ export const ProfileAccount: React.FC<IProfileAccountProps> = ({ account }) => {
 };
 
 
-export default ProfileAccount;
+export default StockLineItem;

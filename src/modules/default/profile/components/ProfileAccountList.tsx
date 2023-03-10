@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TableLedger from '../../common/components/TableLedger';
+import TableLedger from '../../common/components/TableItems/TableLedger';
 import { basicInfoCard } from '../../common/stylesFunctions/common';
 
 

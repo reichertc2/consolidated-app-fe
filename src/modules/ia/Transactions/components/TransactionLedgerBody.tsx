@@ -1,7 +1,7 @@
 import { TableBody } from "@mui/material";
 import { ITransaction } from "../models/ITransactions";
 import TransactionLineItem from "../components/TransactionLineItem";
-import TableRowMessge from "../../../default/common/components/TableItems/TableRowMessage";
+import TableRowMessage from "../../../default/common/components/TableItems/TableRowMessage";
 import TransactionTableEntryForm from "../forms/TransactionTableEntryForm";
 
 
@@ -41,7 +41,7 @@ export const TransactionLedgerBody: React.FC<ITransactionLedgerBody> = ({ id, er
                             transaction={row}
                         />
                     )
-                    ) : <TableRowMessge
+                    ) : <TableRowMessage
                         message={error ?? "No records found"}
                         columns={8}
                     />
