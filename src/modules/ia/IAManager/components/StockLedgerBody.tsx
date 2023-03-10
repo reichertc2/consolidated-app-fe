@@ -9,8 +9,10 @@ import StockTableEntryForm from '../forms/StockTableEntryForm';
 
 interface IProfileAccountLedgerBody {
     id?: string,
-    showTableForm: boolean,
-    setShowTableForm: (show: boolean) => void,
+    showTableForm:boolean,
+    setShowTableForm:(show:boolean)=>void
+    showTableEditForm?: boolean
+    setShowTableEditForm:(show:boolean)=>void
 
 }
 
@@ -21,22 +23,31 @@ export const StockLedgerBody: React.FC<IProfileAccountLedgerBody> = ({ id, showT
 
     return (
         <>
+            {
+                showTableForm ?
+                    <StockTableEntryForm
+                        setShowTableForm={setShowTableForm}
+                        columns={5}
+                    />
+                    : ""
 
-            {showTableForm ?
-
-                <StockTableEntryForm
-                    setShowTableForm={setShowTableForm}
-                />
-                : ""
             }
+
             <TableBody>
                 {stocks && stocks.length !== 0 ?
                     stocks.map((row: IStock) =>
                     (
-                        <StockLineItem
-                            key={row.symbol}
-                            stock={row}
-                        />
+                        showTableForm ?
+                            <StockTableEntryForm
+                                setShowTableForm={setShowTableForm}
+                                stock={row}
+                                columns={5}
+                            /> :
+                            <StockLineItem
+                                key={row.symbol}
+                                stock={row}
+                            />
+
                     )
                     ) :
                     <TableRowMessage

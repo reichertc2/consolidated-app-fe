@@ -3,10 +3,10 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../../context/AppContext";
 import apiStocks from "../apis/apiStocks";
-import { IStock } from "../models/IStock";
+import { IStockEntryFormValues } from "../models/IStock";
 
 
-export default function useUpdateStock(stock?: IStock) {
+export default function useUpdateStock(stock?: IStockEntryFormValues) {
     const { user, setAlert } = useContext(AppContext);
     const navigate = useNavigate();
 

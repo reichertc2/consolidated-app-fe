@@ -4,6 +4,9 @@ import { basicViewStyle } from "../../../default/common/stylesFunctions/common";
 import useProfileAccounts from "../../../default/profile/hooks/useProfileAccounts";
 import TableLedger from "../../../default/common/components/TableItems/TableLedger";
 import AccountTransactionListHeader from "../components/AccountTransactionListHeader";
+import { useState } from "react";
+import StockLedgerBody from "../../IAManager/components/StockLedgerBody";
+import TransactionLedgerBody from "../components/TransactionLedgerBody";
 
 
 interface IAccountTransactionListViewProps {
@@ -16,9 +19,10 @@ export const AccountTransactionListView: React.FC<IAccountTransactionListViewPro
 
     const { id } = useParams<string>()
 
-    const { transactions, error } = useTransactionList(Number(id))
     const { accounts } = useProfileAccounts()
 
+    const [showTableForm, setShowTableForm] = useState<boolean>(false)
+    const [showTableEditForm, setShowTableEditForm] = useState<boolean>(false)
 
     console.log(accounts)
     return (
@@ -32,11 +36,21 @@ export const AccountTransactionListView: React.FC<IAccountTransactionListViewPro
             />
 
             <TableLedger
-                id={id}
-                error={error}
-                transactions={transactions}
+                showTableForm={showTableForm}
+                setShowTableForm={setShowTableForm}
+                showTableEditForm={showTableEditForm}
+                setShowTableEditForm={setShowTableEditForm}
                 headerTitles={headerTitles}
-                selectedBody={"transaction"}
+                selectedBody={
+                    <TransactionLedgerBody
+                        id={id}
+                        showTableForm={showTableForm}
+                        setShowTableForm={setShowTableForm}
+                        showTableEditForm={showTableEditForm}
+                        setShowTableEditForm={setShowTableEditForm}
+
+                    />
+                }
             />
         </section>
     );

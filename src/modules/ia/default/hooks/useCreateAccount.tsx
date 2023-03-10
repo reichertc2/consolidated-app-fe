@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
 
 
-export default function useCreateAccount(account: IAccountEntryFormValues) {
+export default function useCreateAccount(account: IAccountEntryFormValues, isSubmitted?: boolean) {
     const { user, setAlert } = useContext(AppContext);
     const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ export default function useCreateAccount(account: IAccountEntryFormValues) {
                 navigate("/");
             }
         };
-        if (account?.name) {
+        if (isSubmitted) {
             createAccount();
         }
         return () => {

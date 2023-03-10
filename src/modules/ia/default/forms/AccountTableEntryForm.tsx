@@ -2,10 +2,11 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import useCreateAccount from "../hooks/useCreateAccount";
-import { IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
-import { Button, TableCell, TableRow, TextField } from "@mui/material";
+import { IAccount, IAccountEntryFormValues } from "../../../default/profile/models/IAccount";
+import { Button, TableCell, TextField } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
+import useUpdateAccount from "../hooks/useUpdateAccount";
 
 
 // Defining our yup validation
@@ -15,28 +16,41 @@ const FormSchema = Yup.object({
     classification: Yup.string().required(),
 });
 
-const initialValues = {
-    name: "",
-    institution: "",
-    classification: "",
-
-};
 
 interface IAccountTableEntryForm {
-    setShowTableForm: (showTableForm: boolean) => void
+    setShowTableForm: (showTableForm: boolean) => void,
+    account?: IAccount,
+    columns: number
 }
 
 export default function AccountTableEntryForm(props: IAccountTableEntryForm) {
 
+    const initialValues = {
+        name: props.account?.name ?? "",
+        institution: props.account?.institution ?? "",
+        classification: props.account?.classification ?? "",
+
+    };
+
     const [newAccount, setNewAccount] = useState<IAccountEntryFormValues>(initialValues);
+    const [updateAccount, setUpdateAccount] = useState<IAccountEntryFormValues>(initialValues)
+    const [submissionReady, setSubmissionReady] = useState<boolean>(false)
 
-
-    useCreateAccount(newAccount);
+    useUpdateAccount(updateAccount)
+    useCreateAccount(newAccount, submissionReady);
 
     const handleSubmit = (values: IAccountEntryFormValues) => {
 
-        console.log("handleSubmit")
-        setNewAccount(values)
+        if (!props.account?.name) {
+            setSubmissionReady(true)
+            setNewAccount(values)
+        } else {
+            let editValue = {...values}
+            editValue["id"] = props.account.id
+            editValue["balance"] = props.account.balance
+            setUpdateAccount(editValue)
+        }
+
     };
 
     const formik = useFormik({
@@ -50,8 +64,7 @@ export default function AccountTableEntryForm(props: IAccountTableEntryForm) {
 
 
     return (
-        <TableRow>
-            <TableCell colSpan={5}>
+            <TableCell colSpan={props.columns}>
 
                 <form onSubmit={formik.handleSubmit}>
 
@@ -123,7 +136,6 @@ export default function AccountTableEntryForm(props: IAccountTableEntryForm) {
                     </Button>
                 </form>
             </TableCell>
-        </TableRow>
 
 
     );

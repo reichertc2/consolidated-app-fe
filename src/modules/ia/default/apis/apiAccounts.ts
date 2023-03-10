@@ -32,13 +32,13 @@ const post = async (user: any, data:IAccountSubmission, cancelToken: any) => {
   return response.ok;
 };
 
-const del = async (user: any, cancelToken: any,id?:number)=>{
+const del = async (user: any, cancelToken: any, id?: number) => {
   const response = await apiClientTokenAuth(user.token,cancelToken).delete(`${ia_endpoint}/${id}`)
   return response.ok
 }
 
-const put = async (user: any, cancelToken: any,id?:number)=>{
-  const response = await apiClientTokenAuth(user.token,cancelToken).put(`${ia_endpoint}/${id}`)
+const put = async (user: any, cancelToken: any, id?: number, data?: IAccountEntryFormValues ) => {
+  const response = await apiClientTokenAuth(user.token,cancelToken).put(`${ia_endpoint}/${id}`,data)
   return response.ok
 }
 

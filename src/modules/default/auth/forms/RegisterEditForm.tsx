@@ -5,10 +5,9 @@ import useCreateUser from "../hooks/useCreateUser";
 import { IRegisterEditUserFormValues } from "../models/IUserInterfaces";
 import Grid from "@mui/material/Grid";
 import { Button, TextField } from "@mui/material";
+import useEditUser from "../hooks/useEditUser";
 
 
-
-// Defining our yup validation
 const FormSchema = Yup.object({
     email: Yup.string().email("Must be a valid e-mail format").required(),
     first_name: Yup.string().required(),
@@ -17,26 +16,38 @@ const FormSchema = Yup.object({
     Confirm_Password: Yup.string().required().oneOf([Yup.ref("password"), null], "Passwords must match"),
 });
 
-const initialValues = {
-    email: "",
-    first_name: "",
-    last_name: "",
-    password: "",
-    Confirm_Password: "",
-};
+interface IRegisterEditFormProps {
+    user?: IRegisterEditUserFormValues
+}
 
-export default function RegisterEditForm() {
+export default function RegisterEditForm(props: IRegisterEditFormProps) {
+
+    const initialValues = {
+        email: props.user?.email ?? "",
+        first_name: props.user?.first_name ?? "",
+        last_name: props.user?.last_name ?? "",
+        password: props.user?.password ?? "",
+        Confirm_Password: props.user?.password ?? "",
+    };
 
     const [newUser, setNewUser] = useState<IRegisterEditUserFormValues>(initialValues);
-    const [editUser, setEditUser] = useState({});
+    const [editUser, setEditUser] = useState<IRegisterEditUserFormValues>(initialValues);
     const [deleteUser, setDeleteUser] = useState({});
 
     useCreateUser(newUser);
+    useEditUser(editUser)
 
     const handleSubmit = (values: IRegisterEditUserFormValues) => {
 
         console.log("handleSubmit")
-        setNewUser(values)
+        if (!props.user?.first_name) {
+            setNewUser(values)
+        } else {
+            let editValue = {...values}
+            editValue["id"] = props.user?.id
+            setEditUser(editValue)
+        }
+
     };
 
     const formik = useFormik({
@@ -51,7 +62,11 @@ export default function RegisterEditForm() {
 
     return (
         <Grid>
-            <h3>Please Register</h3>
+            {
+                props.user?.email ? <h3>Edit Profile</h3>
+                    : <h3>Please Register</h3>
+            }
+
 
             <form onSubmit={formik.handleSubmit}>
                 <TextField

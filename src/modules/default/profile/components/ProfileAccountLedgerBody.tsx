@@ -9,36 +9,48 @@ import { IAccount } from '../models/IAccount';
 
 interface IProfileAccountLedgerBody {
     id?: string,
-    showTableForm: boolean,
-    setShowTableForm: (show: boolean) => void,
+    showTableForm:boolean,
+    setShowTableForm:(show:boolean)=>void
+    showTableEditForm?: boolean
+    setShowTableEditForm:(show:boolean)=>void
 
 }
 
 
-export const ProfileAccountLedgerBody: React.FC<IProfileAccountLedgerBody> = ({ id, showTableForm, setShowTableForm }) => {
+export const ProfileAccountLedgerBody: React.FC<IProfileAccountLedgerBody> = ({ id, showTableForm, setShowTableForm, showTableEditForm }) => {
 
     const { accounts, error } = useProfileAccounts()
 
     return (
         <>
 
-            {showTableForm ?
-
-                <AccountTableEntryForm
-                    setShowTableForm={setShowTableForm}
-                />
-                : ""
-            }
             <TableBody>
+
+                {
+                    showTableForm ?
+                        <AccountTableEntryForm
+                            setShowTableForm={setShowTableForm}
+                            columns={5}
+                        />
+                        : ""
+                }
                 {accounts && accounts.length !== 0 ?
                     accounts.map((row: IAccount) =>
                     (
-                        <ProfileAccount
-                            key={row.id}
-                            account={row}
-                        />
+                        showTableEditForm ?
+                            <AccountTableEntryForm
+                                setShowTableForm={setShowTableForm}
+                                account={row}
+                                columns={5}
+                            />
+                            :
+                            <ProfileAccount
+                                key={row.id}
+                                account={row}
+                            />
                     )
                     ) :
+
                     <TableRowMessage
                         message={error ?? "No records found"}
                         columns={5}

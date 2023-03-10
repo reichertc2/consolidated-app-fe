@@ -6,7 +6,7 @@ import { IStockEntryFormValues } from "../models/IStock";
 import apiStocks, { IStockSubmission } from "../apis/apiStocks";
 
 
-export default function useCreateStock(stock: IStockEntryFormValues) {
+export default function useCreateStock(stock: IStockEntryFormValues, isSubmitted?:boolean) {
     const { user, setAlert } = useContext(AppContext);
     const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export default function useCreateStock(stock: IStockEntryFormValues) {
         const source = CancelToken.source();
         console.log('useCreateStock createAccount: ', data)
 
-        const createAccount = async () => {
+        const createStock = async () => {
             response = await apiStocks.post(user, data, source.token);
             // console.log('useCreateAccount createAccount: ',source.token)
             if (response) {
@@ -32,8 +32,8 @@ export default function useCreateStock(stock: IStockEntryFormValues) {
                 navigate("/");
             }
         };
-        if (stock?.symbol) {
-            createAccount();
+        if (isSubmitted) {
+            createStock();
         }
         return () => {
             source.cancel();

@@ -3,19 +3,21 @@ import { ITransaction } from "../models/ITransactions";
 import TransactionLineItem from "../components/TransactionLineItem";
 import TableRowMessage from "../../../default/common/components/TableItems/TableRowMessage";
 import TransactionTableEntryForm from "../forms/TransactionTableEntryForm";
+import useTransactionList from "../hooks/useTransactionList";
 
 
 
 interface ITransactionLedgerBody {
     id?: string,
-    error: string,
-    showTableForm: boolean,
-    setShowTableForm: (show: boolean) => void,
-    transactions?: ITransaction[],
+    showTableForm:boolean,
+    setShowTableForm:(show:boolean)=>void
+    showTableEditForm?: boolean
+    setShowTableEditForm:(show:boolean)=>void
 }
 
-export const TransactionLedgerBody: React.FC<ITransactionLedgerBody> = ({ id, error, showTableForm, setShowTableForm, transactions }) => {
+export const TransactionLedgerBody: React.FC<ITransactionLedgerBody> = ({ id, showTableForm, setShowTableForm }) => {
 
+    const { transactions, error } = useTransactionList(Number(id))
 
 
 
