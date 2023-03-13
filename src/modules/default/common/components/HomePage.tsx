@@ -1,34 +1,27 @@
-import { Button } from "@mui/material";
-
+import { Box, TextField } from "@mui/material";
+import lightedforestroad from "../../assets/lightedforestroad.jpg"
 
 interface IHomePage { }
 
 export const HomePage: React.FC<IHomePage> = () => {
 
     return (
-        <table
-            className="w-full m-auto h-1/2"
+        <Box>
+
+
+            <Box
+                component="img"
+                sx={{
+                    marginTop: ".5%",
+                    width: "100%",
+                    opacity: "65%"
+                }}
+                src={lightedforestroad} />
+            <p
             
-        >
-            <tbody 
-            >
-                <tr>
-                    <td
-                        className="m-auto w-6/12 text-2xl p-3 align-top"
-                    >
-                        Welcome to the Cosolidated App!!
-                    </td>
-                    <td
-                        className="m-auto w-6/12 text-2xl p-3 align-baseline text-end"
-                    >
-                        Your one stop shop for all your Personal needs.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            > Welcome to the Cosolidated App!!</p>
 
-
-
+        </Box>
 
     );
 };
