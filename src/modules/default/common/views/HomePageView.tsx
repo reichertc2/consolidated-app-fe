@@ -9,7 +9,6 @@ interface IHomePageView { }
 
 export const HomePageView: React.FC<IHomePageView> = () => {
 
-    const { user } = useContext(AppContext)
 
     return (
         <section
@@ -17,17 +16,7 @@ export const HomePageView: React.FC<IHomePageView> = () => {
         >
             <HomePage />
             
-            {!user.email ?
 
-                <Button
-                    href="/user/login"
-                    className="bg-zinc-900 block m-auto w-1/6"
-                >
-                    Login
-                </Button>
-
-                : ""
-            }
 
 
         </section>
