@@ -16,9 +16,6 @@ export const HomePageView: React.FC<IHomePageView> = () => {
         >
             <HomePage />
             
-
-
-
         </section>
 
     );

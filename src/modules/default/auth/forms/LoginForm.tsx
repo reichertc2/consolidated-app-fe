@@ -1,16 +1,13 @@
 import { useContext, useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-//import Button from "../components/Button";
 import TextField from "@mui/material/TextField";
 import { AppContext } from "../../../../context/AppContext";
-//import Error from "../components/Error";
 import useLogin from "../hooks/useLogin";
 import { Link } from "react-router-dom";
 import { IUserLoginFormValues } from "../models/IUserInterfaces";
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
-//Defining our yup validation
 const FormSchema = Yup.object({
     email: Yup.string().email("Must be a valid e-mail format").required(),
     password: Yup.string().required(),
@@ -29,7 +26,7 @@ export default function LoginForm() {
     useLogin(loginCreds, setLoginCreds, setError, setUser);
 
     const handleSubmit = (values: IUserLoginFormValues) => {
-        console.log("login handleSubmit",values);
+        console.log("login handleSubmit", values);
         setLoginCreds(values);
     };
 
@@ -42,16 +39,18 @@ export default function LoginForm() {
     });
 
     return (
-        <Grid>
-            <h3>Please Login</h3>
-            <form onSubmit={formik.handleSubmit}>
+        <>
+            <form
+                className="max-w-lg"
+                onSubmit={formik.handleSubmit}
+            >
                 <TextField
                     id="email"
                     name="email"
                     fullWidth
                     sx={{ mb: 2, mt: 2, backgroundColor: 'white' }}
-                    label="email"
-                    placeholder="email"
+                    label="Email"
+                    placeholder="Email"
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     error={formik.touched.email && Boolean(formik.errors.email)}
@@ -64,17 +63,19 @@ export default function LoginForm() {
                     type="password"
                     fullWidth
                     sx={{ mb: 2, backgroundColor: 'white' }}
-                    label="password"
-                    placeholder="password"
+                    label="Password"
+                    placeholder="Password"
                     value={formik.values.password}
                     onChange={formik.handleChange}
                     error={formik.touched.password && Boolean(formik.errors.password)}
                     helperText={formik.touched.password && formik.errors.password}
                 />
 
-                <button type="submit" style={{ width: "100%" }}>
+                <Button
+                    type="submit"
+                    sx={{ width: "100%" }}>
                     Login
-                </button>
+                </Button>
                 {/*<Error>{error}</Error>*/}
             </form>
 
@@ -86,6 +87,6 @@ export default function LoginForm() {
                 {/*    {user.first_name ? "Edit Profile" : "Register"}*/}
                 {/*</Button>*/}
             </Link>
-        </Grid>
+        </>
     );
 }
